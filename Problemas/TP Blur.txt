@@ -1,0 +1,41 @@
+
+problema Blur(imagen:[[(Int, Int, Int)]], k:Int) = ret:[[(Int, Int, Int)]] {
+	
+	requiere KEsPositivo: k > 0;
+	# distinto de 0 tambien porque no se puede sacar el promedio de 0 
+
+	requiere EntradaEsRectangular: EsRectangular(imagen);
+	# las dimensiones deben ser felices
+
+	# requiere EntradaTieneSuperficie: Alto(imagen) > 0 && Ancho(imagen) > 0;
+	# ninguna de las dimensiones debe ser cero
+
+	requiere TodosLosPixelsSonValidos:  (∀ f<-imagen) (∀ px<-f) (0<=prm(px)<256 && 0<=sgd(px)<256 && 0<=trc(px)<256);
+	# esto esta por si las dudas, lo obliga a que sean bytes 
+
+	# asegura SalidaEsRectangular: ___ ; # DimensionesDeSalidaIguales implica esto
+	asegura DimensionesDeSalidaIguales: Alto(ret) == Alto(imagen) && Ancho(ret) == Ancho(imagen);
+
+	asegura AseguraTodo:  (∀ y<-[0:|Alto(imagen)|) ) (∀ x<-[0:|Ancho(imagen)|) ) 
+		( if EsKCompleto(KVecinos(imagen, y, x, k), k) then EsPromedio(ret, imagen, y, x, k) else EsNegro(ret, y, x));
+
+	aux EsRectangular(img:[[(Int, Int, Int)]]) : Bool = (∀ a<-img, b<-img) |a| == |b|;
+
+	aux Alto(img:[[(Int, Int, Int)]]) : Int = |img|;
+	aux Ancho(img:[[(Int, Int, Int)]]) : Int = (if |img| == 0 then 0 else |cab(img)| );
+
+	aux EsIndiceValido(y,x:Int, img:[[(Int, Int, Int)]]) : Bool = 0 <= y < Alto(img) && 0 <= x < Ancho(img);
+	aux KIndices(y,x,k:Int) : [(Int, Int)] = [(i,j) | i<-(y-k:y+k), j<-(y-k:y+k)];
+	aux KVecinos(img:[[(Int, Int, Int)]], y,x,k:Int) : [(Int, Int, Int)] = [Pixel(img, prm(c), sgd(c)) | c<-KIndices(y, x, k), EsIndiceValido(c)];
+
+	aux Pixel(img:[[(Int, Int, Int)]], y,x:Int) : (Int, Int, Int) = (if EsIndiceValido(y, x, img) then img[y][x] else (0,0,0));
+
+	aux EsNegro(r:[[(Int, Int, Int)]], y,x:Int) : Bool = prm(Pixel(r,y,x)) == 0 && sgd(Pixel(r,y,x)) == 0 trc(Pixel(r,y,x)) == 0;
+	aux EsPromedio(r,img:[[(Int, Int, Int)]], y,x,k:Int) : Bool = prm(Pixel(r, y, x)) == (sum([prm(p) | p<-KVecinos(img,y,x,k)]) / |KVecinos(img,y,x,k)|)
+		&& sgd(Pixel(r, y, x)) == (sum([sgd(p) | p<-KVecinos(img,y,x,k)]) / |KVecinos(img,y,x,k)|)
+		&& trc(Pixel(r, y, x)) == (sum([trc(p) | p<-KVecinos(img,y,x,k)]) / |KVecinos(img,y,x,k)|);
+	
+	aux EsKCompleto(kv:[(Int, Int, Int)], k:Int) : Bool = |kv| == (k+k-1)^2;
+}
+
+# ( ∀ )
