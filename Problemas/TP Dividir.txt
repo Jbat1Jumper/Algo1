@@ -17,7 +17,7 @@ problema dividir(imagen:[[(Int, Int, Int)]], m,n:Int) = res:[[[(Int, Int, Int)]]
 	asegura mismos(res,SepararHorizontal(SepararVertical(imagen,n),m));
 
 	aux SepararVertical(img:[[(Int,Int,Int)]], columnas : Int) : [[[(Int,Int,Int)]]] = 
-	[ miniimg | miniimg<-VerticalizarImagen(img,columnas)[i*|img|..(i+1)*img), i<-[0..columnas) ];
+	[ miniimg | miniimg<-VerticalizarImagen(img,columnas)[i*Alto(img)..(i+1)*Alto(img)), i<-[0..columnas) ];
 	# separo la imagen vertical fea en las imagenes cortadas verticalmente lindas
 
 	aux VerticalizarImagen (img: [[(Int,Int,Int)]], columnas:Int) : [[(Int,Int,Int)]] = 
