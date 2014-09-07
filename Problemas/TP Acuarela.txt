@@ -1,7 +1,7 @@
 
 problema Acuarela ( img : [[ (Int, Int, Int)]] , k : Int) =  res : [[(Int, Int, Int)]] {
 	
-	requiere EntradaRectangular(img);
+	requiere EsRectangular(img);
 	requiere KEsPositivo : k>0;
 	asegura dimensionesDeSalidaIgual : Alto(img) == Alto(res) && Ancho(img) == Ancho(res);
 	asegura paratodo  (i,j) <-- |res|, res[i,j] == MedianaONegro(i,j,img,k);
