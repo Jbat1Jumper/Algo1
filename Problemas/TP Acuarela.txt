@@ -1,0 +1,33 @@
+
+problema Acuarela ( img : [[ (Int, Int, Int)]] , k : Int) =  res : [[(Int, Int, Int)]] {
+	
+	requiere EntradaRectangular(img);
+	requiere KEsPositivo : k>0;
+	asegura dimensionesDeSalidaIgual : Alto(img) == Alto(res) && Ancho(img) == Ancho(res);
+	asegura paratodo  (i,j) <-- |res|, res[i,j] == MedianaONegro(i,j,img,k);
+}
+
+aux MedianaONegro ( i,j : Int , img : [[(Int, Int, Int )]] , k : Int ) : (Int, Int, Int ) = 
+
+	if (esKCompletos(vectorKVecinos(img,k,i,j))) then 
+		mediana(vectorKVecinos(img,k,i,j));
+	else 
+		(0,0,0);                                                       
+
+aux vectorKVecinos( img : [[ (Int, Int, Int)]] , k,i,j : Int ) = 
+[ img[a][b] | a <-- [i-k+1..i+k-1], b <-[j-k +1..j+k-1], a>=0 && b>=0 && a < Alto(img) && b < Ancho(img) ]
+
+aux esKCompletos( vector[(Int,Int,Int), k : Int]) : Bool = |vector| == (k+k-1)^2 ;
+
+aux mediana ( vector : [(Int, Int, Int)] ) : (Int, Int, Int) = 
+
+		(	valorMediana([ prm(a) | a <-- vector]),
+			valorMediana([ sgd(a) | a <-- vector ]),
+			valorMediana([ trc(a) | a <-- vector ])	  )
+
+
+aux valorMediana( xs : [Int] ) : Int = enOrden(xs)[|xs|/2] ;
+
+aux enOrden( xs : [Int]) : [Int] = [ x | i <--[0,. . . ,|xs|), x <-- xs, cuentaMenores(xs,x) == i ];
+
+aux cuentaMenores(xs : [Int] , x : Int) : Int = |[1 | y  xs, y < x]| ; 
