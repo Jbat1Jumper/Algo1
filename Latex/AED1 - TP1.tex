@@ -1,0 +1,126 @@
+% Clase y configuracion de tipo de documento
+\documentclass[10pt,a4paper,spanish]{article}
+% Inclusion de paquetes
+\usepackage{a4wide}
+\usepackage{amsmath, amscd, amssymb, amsthm, latexsym}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[width=15.5cm, left=3cm, top=2.5cm, height= 24.5cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{xspace}
+\usepackage{longtable}
+\usepackage{caratula}
+% incluye macros espec materia
+\include{algo1-cmds}
+
+% Encabezado
+\lhead{Algoritmos y Estructuras de Datos I}
+\rhead{Grupo 4}
+% Pie de pagina
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{Facultad de Ciencias Exactas y Naturales}
+\rfoot{Universidad de Buenos Aires}
+
+\begin{document}
+
+% Datos de caratula
+\materia{Algoritmos y Estructuras de Datos I}
+\titulo{Trabajo Pr\'actico N\'umero 1}
+\subtitulo{Especificaci\'on}
+\grupo{Grupo: 4}
+
+\integrante{Aun Castells, Mar\'ia Virginia}{366/13}{vauncastells@hotmail.com}
+\integrante{Motta, Leandro}{85/14}{leamotta@msn.com}
+\integrante{Zdanovitch, Nikita}{520/14}{3hb.tch@gmail.com}
+\integrante{de Monasterio, Francisco}{764/13}{franciscodemonasterio@outlook.com}
+
+\maketitle
+
+\newpage
+
+% Para crear un indice
+%\tableofcontents
+
+% Forzar salto de pagina
+\clearpage
+
+% Pueden modularizar el documento incluyendo otros .tex
+% \include{observaciones}
+
+\section{Observaciones}
+
+	\begin{enumerate}
+		\item un item
+		\item otro item
+	\end{enumerate}
+
+% Otro salto de pagina
+% \newpage
+
+\section{Resolución}
+
+\begin{ejercicio}
+	% EJEMPLO
+	Blur:
+
+	\begin{problema}{blur}{imagen:[[(\ent,\ent,\ent)]], k:\ent}{res:[[(\ent,\ent,\ent)]]}
+		\requiere[kEsPositivo]{k > 0}
+		\requiere[entradaEsRectangular]{EsRectangular(imagen)}
+		\requiere[todosLosPixelsSonValidos]{(\forall f \selec imagen) (\forall px \selec f) ()}
+		\asegura[dimensionesDeSalidaIguales]{Alto(res) == Alto(imagen) \wedge Ancho(res) == Ancho(imagen)}
+		\asegura[aseguraTodo]{(\forall y \selec [0:\mid Alto(imagen)\mid)) (\forall x \selec [0:\mid Ancho(imagen)\mid))\ if\  esKCompleto(KVecinos(imagen, y, x, k), k)\ then\ esPromedio(res, imagen, y, x, k)\ else\ esNegativo(res, y, x)}
+	\end{problema}
+
+\end{ejercicio}
+
+\begin{ejercicio}
+	% EJEMPLO
+	Dividir:
+
+	\begin{problema}{dividir}{imagen:[[(\ent,\ent,\ent)]], m,n:\ent}{res:[[(\ent,\ent,\ent)]]}
+		\requiere[nYmEsPositivo]{n > 0 \wedge m > 0}
+		\requiere[entradaTieneSuperficie]{Alto(imagen) > 0\ \wedge\  Ancho(imagen > 0}
+		\requiere[todosLosPixelsSonValidos]{(\forall f \selec imagen) (\forall px \selec f)}
+		\requiere[divideEnFilasIguales]{Alto(imagen)\mod{m} == 0}
+		\requiere[divideEnColumnasIguales]{Ancho(imagen)\mod{n} == 0}		
+		\asegura{mismo(res,SepararHorizontal(SepararVertical(imagen,n),m))}
+	\end{problema}
+
+\end{ejercicio}
+
+\begin{ejercicio}
+	% EJEMPLO
+	Blur:
+
+	\begin{problema}{cociente}{a,b:\ent}{res:\ent}
+		\requiere{b \neq 0}
+		\asegura{res == a$ $div$ $b}
+	\end{problema}
+
+\end{ejercicio}
+
+\begin{ejercicio}
+	% EJEMPLO
+	Otro ejemplo sin resultado:
+	
+	\begin{problema*}{cociente}{a,b:\ent}
+		\requiere{b \neq 0}
+		\modifica{a,b}
+		\asegura{a == pre(a)$ $div$ $pre(b)}
+		\asegura{b == pre(a)$ $mod$ $pre(b)}
+	\end{problema*}
+
+\end{ejercicio}
+
+% \subsection{Ejercicio X}
+
+\subsection{Auxiliares}
+
+\begin{itemize}
+	\item \auxil{inversa(a:\TLista{T}) : \TLista{T}}{[a_{|a|-i-1}\ |\ i \selec [0 \twodots \longitud{a})]}
+\end{itemize}
+        
+\end{document}
