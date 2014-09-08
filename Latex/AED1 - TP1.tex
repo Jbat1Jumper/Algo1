@@ -91,36 +91,124 @@
 
 \end{ejercicio}
 
-\begin{ejercicio}
+%\begin{ejercicio}
 	% EJEMPLO
-	Blur:
+%	Blur:
 
-	\begin{problema}{cociente}{a,b:\ent}{res:\ent}
-		\requiere{b \neq 0}
-		\asegura{res == a$ $div$ $b}
-	\end{problema}
+%	\begin{problema}{cociente}{a,b:\ent}{res:\ent}
+%		\requiere{b \neq 0}
+%		\asegura{res == a$ $div$ $b}
+%	\end{problema}
 
-\end{ejercicio}
+%\end{ejercicio}
 
-\begin{ejercicio}
-	% EJEMPLO
-	Otro ejemplo sin resultado:
+%\begin{ejercicio}
+%	% EJEMPLO
+%	Otro ejemplo sin resultado:
 	
-	\begin{problema*}{cociente}{a,b:\ent}
-		\requiere{b \neq 0}
-		\modifica{a,b}
-		\asegura{a == pre(a)$ $div$ $pre(b)}
-		\asegura{b == pre(a)$ $mod$ $pre(b)}
-	\end{problema*}
+%	\begin{problema*}{cociente}{a,b:\ent}
+%		\requiere{b \neq 0}
+%		\modifica{a,b}
+%		\asegura{a == pre(a)$ $div$ $pre(b)}
+%		\asegura{b == pre(a)$ $mod$ $pre(b)}
+%	\end{problema*}
 
-\end{ejercicio}
+%\end{ejercicio}
 
 % \subsection{Ejercicio X}
 
 \subsection{Auxiliares}
 
+%\begin{itemize}
+%	\item \auxil{Alto(img:{{(\ent ,\ent ,\ent)}}} : \ent}\longitud{img}}
+%\end{itemize}
+
 \begin{itemize}
-	\item \auxil{inversa(a:\TLista{T}) : \TLista{T}}{[a_{|a|-i-1}\ |\ i \selec [0 \twodots \longitud{a})]}
+	\item \auxil{Alto(img:[[(\ent ,\ent ,\ent)]] : \ent}{ \longitud{img}}
 \end{itemize}
+
+\begin{itemize}
+	\item \auxil{Ancho(img:[[(\ent ,\ent ,\ent)]]) : \ent}{if\ \longitud{img} == 0\  then\ 0\ else \longitud{cab(img)}}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{esIndiceValido(y,x: \ent , img:[[(\ent ,\ent ,\ent)]] : \bool}{0 \leqslant y < Alto(img) \wedge 0 \leqslant x < Ancho(img)}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{esRectangular(img:[[(\ent ,\ent ,\ent)]] : \bool}{(\forall a\selec img) \longitud{a} == \longitud{cab(img)}}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{KIndices(y,x,k: \ent : [(\ent ,\ent)] }{[(i,j)\ |\ i\selec(y-k:y+k), i\selec(y-k:y+k)]}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{KVecinos(img:[[(\ent ,\ent ,\ent)]], y,x,k: \ent : [(\ent ,\ent ,\ent)]}{[Pixel(img, \prm{c}, \sgd{c})\ |\ c\selec KIndices(y,x,k),\  esIndiceValido(c)]}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{Pixel(img:[[(\ent ,\ent ,\ent)]], y,x:\ent) : (\ent ,\ent ,\ent)}{if\ esIndiceValido(y, x, img)\ then\ img[y][x]\ else (0, 0, 0)}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{EsNegro(r:[[(\ent ,\ent ,\ent)]], y,x:\ent) : \bool}{\prm{Pixel(r,y,x} == 0 \wedge \sgd{Pixel(r,y,x} == 0 \wedge \trc{Pixel(r,y,x} == 0}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{EsPromedio(r,img:[[(\ent ,\ent ,\ent)]], y,x,k:\ent) : \bool}{\prm{Pixel(r,y,x)} == (\sum{\prm{p}\ |\ p\selec KVecinos(img,y,x,k) \longitud{KVecinos(img,y,x,k)}} \wedge \sgd{Pixel(r,y,x)} == (\sum{\sgd{p}\ |\ p\selec KVecinos(img,y,x,k) \longitud{KVecinos(img,y,x,k)}} \wedge \trc{Pixel(r,y,x)} == (\sum{\trc{p}\ |\ p\selec KVecinos(img,y,x,k) \longitud{KVecinos(img,y,x,k)}}}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{EsKCompleto(kv:[(\ent ,\ent ,\ent)],\ k:\ent) : \bool}{\longitud{kv} == (k+k-1)^2}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{VektorKVecinos(img:[[(\ent ,\ent ,\ent)]],\ i,j,k: \ent) : [(\ent ,\ent ,\ent)]}{[img[a][b]\ |\ a\selec [i-k+1:i+k-1],\ b\selec[j-k+1:j+k-1],\ a\geq 0\ \wedge\ b\geq 0\ \wedge\ a < Alto(img)\ \wedge\ b < Ancho(img)]}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{MedianaONegro(img:[[(\ent ,\ent ,\ent)]],\ i,j,k: \ent) : (\ent ,\ent ,\ent)}{if\ esKCompleto(vectorKvecinos(img,k,i,j))\ then\ mediana(vectorKvecinos(img,k,i,j))\ else (0,0,0)}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{mediana(vector:[(\ent ,\ent ,\ent)]) : (\ent ,\ent ,\ent)}{(valorMediana([\prm{a}\ |\ a\selec vector],\ valorMediana([\sgd{a}\ |\ a\selec vector],\ valorMediana([\trc{a}\ |\ a\selec vector])}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{valorMediana(xs:[\ent]) : \ent}{enOrden(xs)[\longitud{xs}\ $div$\ 2]}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{enOrden(xs:[\ent]) : [\ent]}{[x\ |\ i\selec [0:\longitud{xs}),\ x\selec xs,\ cuentaMenores(xs,x) == i]}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{cuentaMenores(xs:[\ent],\ x:\ent) : \ent}{\longitud{[1\ |\ y\ xs,\ y < x]}}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{SepararVertical(img:[[(\ent ,\ent ,\ent)]],\ columnas: \ent) : [[[(\ent ,\ent ,\ent)]]]}{[verticalizarImagen(img,columnas)[i*Alto(img)..(i+1)*Alto(img))\ |\ i\selec[0..columnas)]}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{verticalizarImagen(img:[[(\ent ,\ent ,\ent)]],\ columnas: \ent) : [[(\ent ,\ent ,\ent)]]}{[img[i][Ancho(img)*k\ $div$\ columnas..Ancho(img)*(k+1\ $div$\ columnas)]\ |\ k\selec [0..columnas),\ i\selec[0..Alto(img))]}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{SepararHorizontal(listaimg:[[[(\ent ,\ent ,\ent)]]],\ filas: \ent) : [[[(\ent ,\ent ,\ent)]]]}{[listaimg[i][\longitud{cab(listaimg)}*k\ $div$\ filas..\longitud{cab(listaimg)}*(k+1)\ $div$\ filas\ |\ k\selec[0..filas),\ i\selec[0..\longitud{listaimg})]\ |\ a\selec [i-k+1:i+k-1],\ b\selec[j-k+1:j+k-1],\ a\geq 0\ \wedge\ b\geq 0\ \wedge\ a < Alto(img)\ \wedge\ b < Ancho(img)]}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{cuenta(x:T,\ a:\TLista{T}) : \ent}{long([y\ |\ y\selec a,\ y == x])}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{mismos(a,b:\TLista{T}) : \bool}{(\longitud{a}==\longitud{b}\ \wedge\ (\forall c\selec a)\ cuenta(c,a) == cuenta(c,b))}
+\end{itemize}
+        
+%\begin{itemize}
+%	\item \auxil{inversa(a:\TLista{T}) : \TLista{T}}{[a_{|a|-i-1}\ |\ i \selec [0 \twodots \longitud{a})]}
+%\end{itemize}
         
 \end{document}

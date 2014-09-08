@@ -9,15 +9,15 @@ problema Acuarela ( img : [[ (Int, Int, Int)]] , k : Int) =  res : [[(Int, Int, 
 
 aux MedianaONegro ( i,j : Int , img : [[(Int, Int, Int )]] , k : Int ) : (Int, Int, Int ) = 
 
-	if (esKCompletos(vectorKVecinos(img,k,i,j))) then 
+	if esKCompletos(vectorKVecinos(img,k,i,j)) then 
 		mediana(vectorKVecinos(img,k,i,j));
 	else 
 		(0,0,0);                                                       
 
-aux vectorKVecinos( img : [[ (Int, Int, Int)]] , k,i,j : Int ) = 
+aux vectorKVecinos( img : [[ (Int, Int, Int)]] , k,i,j : Int ) : [(Int,Int,Int)] = 
 [ img[a][b] | a <-- [i-k+1..i+k-1], b <-[j-k +1..j+k-1], a>=0 && b>=0 && a < Alto(img) && b < Ancho(img) ]
 
-aux esKCompletos( vector[(Int,Int,Int), k : Int]) : Bool = |vector| == (k+k-1)^2 ;
+aux esKCompletos( vector: [(Int,Int,Int)], k : Int]) : Bool = |vector| == (k+k-1)^2 ;
 
 aux mediana ( vector : [(Int, Int, Int)] ) : (Int, Int, Int) = 
 

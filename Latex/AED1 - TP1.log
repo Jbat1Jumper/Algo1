@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.2)  5 SEP 2014 19:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.2)  8 SEP 2014 06:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -655,37 +655,118 @@ m/n/10 (\OML/cmm/m/it/10 res; imagen; y; x; k\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10
  
  []
 
+
+Overfull \hbox (42.61674pt too wide) in paragraph at lines 151--152
+[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 Pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
+ img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML
+/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ; y; x \OT1/c
+mr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : (\U/msb/m/n/10 Z\OML/cmm/m/it/10
+ ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) = \OML/cm
+m/m/it/10 if esIndiceValido\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y; x; img\OT1/cmr/
+m/n/10 ) \OML/cmm/m/it/10 then img\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 y\OT1/cmr/m
+/n/10 ][\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ] \OML/cmm/m/it/10 else\OT1/cmr/m/n/1
+0 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)$;
+ 
+ []
+
+
+Overfull \hbox (224.86186pt too wide) in paragraph at lines 159--160
+[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 EsPromedio\OT1/cmr/m/n/10 (\OML/cmm/m/
+it/10 r; img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/
+10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ; y; 
+x; k \OT1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : [] = [](\OML/cmm/m/it
+/10 Pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 r; y; x\OT1/cmr/m/n/10 )) == ([] [] 
+\OMS/cmsy/m/n/10 ^
+ []
+
+
+Overfull \hbox (65.04666pt too wide) in paragraph at lines 159--160
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 r; y
+; x\OT1/cmr/m/n/10 )) == ([] [] \OMS/cmsy/m/n/10 ^ []\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 Pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 r; y; x\OT1/cmr/m/n/10 )) ==
+ []
+
+
+Overfull \hbox (310.56914pt too wide) in paragraph at lines 171--172
+[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 MedianaONegro\OT1/cmr/m/n/10 (\OML/cmm
+/m/it/10 img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/
+10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ;  i;
+ j; k \OT1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : (\U/msb/m/n/10 Z\OML
+/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10
+ ) = \OML/cmm/m/it/10 if esKCompleto\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 vectorKve
+cinos\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 img; k; i; j\OT1/cmr/m/n/10 )) \OML/cmm/
+m/it/10 then mediana\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 vectorKvecinos\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 img; k; i; j\OT1/cmr/m/n/10 )) \OML/cmm/m/it/10 else\OT1
+/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m
+/n/10 0)$; 
+ []
+
+
+Overfull \hbox (75.3456pt too wide) in paragraph at lines 175--176
+[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 mediana\OT1/cmr/m/n/10 (\OML/cmm/m/it/
+10 vector \OT1/cmr/m/n/10 : [(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z
+\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]) : (\U/msb/m/n/10 Z\OML/cm
+m/m/it/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) 
+= (\OML/cmm/m/it/10 valorMediana\OT1/cmr/m/n/10 ([[](\OML/cmm/m/it/10 a\OT1/cmr
+/m/n/10 ) \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 a \OMS/cmsy/m/n/10   \OML/cmm/m/i
+t/10 vector\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ;  valorMediana\OT1/cmr/m/n/10 ([[
+](\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 a \OM
+S/cmsy/m/n/10  
+ []
+
 [2
 
-] (./AED1 - TP1.aux
+]
+Overfull \hbox (69.98915pt too wide) in paragraph at lines 191--192
+[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 SepararVertical\OT1/cmr/m/n/10 (\OML/c
+mm/m/it/10 img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/
+n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ;  
+columnas \OT1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : [[[(\U/msb/m/n/10
+ Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/
+m/n/10 )]]] = [\OML/cmm/m/it/10 verticalizarImagen\OT1/cmr/m/n/10 (\OML/cmm/m/i
+t/10 img; columnas\OT1/cmr/m/n/10 )[\OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 ^^C
+ []
+
+
+Overfull \hbox (35.72708pt too wide) in paragraph at lines 199--200
+[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 SepararHorizontal\OT1/cmr/m/n/10 (\OML
+/cmm/m/it/10 listaimg \OT1/cmr/m/n/10 : [[[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \
+U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]]\OML/cmm/m/
+it/10 ;  filas \OT1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : [[[(\U/msb/
+m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT
+1/cmr/m/n/10 )]]] = [\OML/cmm/m/it/10 listaimg\OT1/cmr/m/n/10 [\OML/cmm/m/it/10
+ i\OT1/cmr/m/n/10 ][[] \OMS/cmsy/m/n/10 ^^C
+ []
+
+[3] (./AED1 - TP1.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 5636 strings out of 493304
- 74287 string characters out of 6139872
- 157476 words of memory out of 5000000
- 8978 multiletter control sequences out of 15000+600000
- 8595 words of font info for 35 fonts, out of 8000000 for 9000
+ 5644 strings out of 493304
+ 74403 string characters out of 6139872
+ 162476 words of memory out of 5000000
+ 8985 multiletter control sequences out of 15000+600000
+ 9195 words of font info for 37 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,12n,43p,267b,241s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,12n,43p,433b,260s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
-.pfb>
-Output written on "AED1 - TP1.pdf" (2 pages, 505005 bytes).
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
+/msbm10.pfb>
+Output written on "AED1 - TP1.pdf" (3 pages, 509957 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 68 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
