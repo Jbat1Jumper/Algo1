@@ -76,7 +76,7 @@
 		\requiere[todosLosPixelsSonValidos]{
 			(\forall\ f \selec imagen) (\forall\ px \selec f)\ esPixelValido(px)
 		}
-		\asegura[conservaDimenciones]{
+		\asegura[conservaDimensiones]{
 			alto(res) == alto(imagen) \land ancho(res) == ancho(imagen)
 		}
 		\aseguraml{
@@ -129,7 +129,7 @@
 		\requiere{
 			esRectangular(imagen)
 		}
-		\asegura[conservaDimenciones]{
+		\asegura[conservaDimensiones]{
 			alto(res) == alto(imagen) \land ancho(res) == ancho(imagen)
 		}
 		\aseguraml[]{
@@ -190,14 +190,14 @@
 	}
 		
 	\item \auxil{esNegro(img:[[(\ent,\ent,\ent)]],\ y,x:\ent) : \bool}{
-		prm(pixel(img,\ y,\ x)) == 0\ \land\ \sgd{pixel(img,\ y,\ x)} == 0\ \land\ \trc{pixel(img,\ y,\ x)} == 0 
+		\prm{pixel(img,\ y,\ x)} == 0\ \land\ \sgd{pixel(img,\ y,\ x)} == 0\ \land\ \trc{pixel(img,\ y,\ x)} == 0 
 	}
 	
 	\item \auxil{pixel(img:[[(\ent,\ent,\ent)]],\ y,x:\ent) : (\ent,\ent,\ent)}{
 		 \IF esIndiceValido(y,\ x,\ img) \THEN img[y][x] \ELSE (0,\ 0,\ 0)
 	}
 	\item \auxil{kVecinos(img:[[(\ent,\ent,\ent)]],\ y,x,k:\ent) : [(\ent,\ent,\ent)]}{
-		[pixel(img,\ prm(c),\ sgd(c))\ |\ c \selec kIndices(y,\ x,\ k),\ esIndiceValido(c)]
+		[pixel(img,\ \prm{c},\ \sgd{c})\ |\ c \selec kIndices(y,\ x,\ k),\ esIndiceValido(\prm{c},\ \sgd{c},\ img)]
 	}
 	\item \auxil{kIndices(y,x,k:\ent) : [(\ent,\ent)]}{
 		[(i,\ j)\ |\ i \selec (y-k\,..\,y+k),\ j \selec (x-k\,..\,x+k)]

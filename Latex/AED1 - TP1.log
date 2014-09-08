@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.9.5)  8 SEP 2014 10:16
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.9.5)  8 SEP 2014 10:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -681,16 +681,16 @@ Overfull \hbox (22.05222pt too wide) in paragraph at lines 40--40
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo_dc.jpg> <./logo_uba
 .jpg>]
-Underfull \hbox (badness 4726) in paragraph at lines 81--82
-[]\OT1/cmss/m/n/10 asegura con-ser-vaDi-men-ciones: $\OML/cmm/m/it/10 alto\OT1/
+Underfull \hbox (badness 4899) in paragraph at lines 81--82
+[]\OT1/cmss/m/n/10 asegura con-ser-vaDi-men-siones: $\OML/cmm/m/it/10 alto\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 res\OT1/cmr/m/n/10 ) == \OML/cmm/m/it/10 alto\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cm
 m/m/it/10 ancho\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res\OT1/cmr/m/n/10 ) ==
  []
 
 
-Underfull \hbox (badness 4726) in paragraph at lines 134--135
-[]\OT1/cmss/m/n/10 asegura con-ser-vaDi-men-ciones: $\OML/cmm/m/it/10 alto\OT1/
+Underfull \hbox (badness 4899) in paragraph at lines 134--135
+[]\OT1/cmss/m/n/10 asegura con-ser-vaDi-men-siones: $\OML/cmm/m/it/10 alto\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 res\OT1/cmr/m/n/10 ) == \OML/cmm/m/it/10 alto\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cm
 m/m/it/10 ancho\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res\OT1/cmr/m/n/10 ) ==
@@ -722,14 +722,14 @@ Overfull \hbox (22.1652pt too wide) in paragraph at lines 178--191
 [2
 
 ]
-Overfull \hbox (44.66026pt too wide) in paragraph at lines 194--195
+Overfull \hbox (42.30954pt too wide) in paragraph at lines 194--195
 []\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 esNegro\OT1/cmr/m/n/10 (\OML/cmm/m/it/
 10 img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\O
 ML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ;  y; x \OT
-1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : [] = \OML/cmm/m/it/10 prm\OT1
-/cmr/m/n/10 (\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 img;  y;  
-x\OT1/cmr/m/n/10 )) == 0  \OMS/cmsy/m/n/10 ^  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/
-10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 img;  y;  x\OT1/cmr/m/n/10 )) ==
+1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : [] = [](\OML/cmm/m/it/10 pixe
+l\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 img;  y;  x\OT1/cmr/m/n/10 )) == 0  \OMS/cms
+y/m/n/10 ^  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 img;  y;  x\OT1/cmr/m/n/10 )) ==
  []
 
 
@@ -782,7 +782,7 @@ public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb>
-Output written on "AED1 - TP1.pdf" (3 pages, 502039 bytes).
+Output written on "AED1 - TP1.pdf" (3 pages, 502026 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  44 compressed objects within 1 object stream

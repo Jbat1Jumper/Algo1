@@ -16,26 +16,26 @@ problema dividir(imagen:[[(Int, Int, Int)]], m,n:Int) = res:[[[(Int, Int, Int)]]
 
 	asegura mismos(res,SepararHorizontal(SepararVertical(imagen,n),m));
 
-	aux SepararVertical(img:[[(Int,Int,Int)]], columnas : Int) : [[[(Int,Int,Int)]]] = 
-	[VerticalizarImagen(img,columnas)[i*Alto(img)..(i+1)*Alto(img)) | i<-[0..columnas) ];
-	# separo la imagen vertical fea en las imagenes cortadas verticalmente lindas
-
-	aux VerticalizarImagen (img: [[(Int,Int,Int)]], columnas:Int) : [[(Int,Int,Int)]] = 
-	[img[i][Ancho(img)*k/columnas .. Ancho(img)*(k+1)/columnas) | k<-[0..columnas), i<-[0..Alto(img)) ];
-	# agrupo las filas de pixeles cortados de manera que pueda separarlos en imagenes en SepararVertical 
-
-	aux SepararHorizontal (listaimg:[[[(Int,Int,Int)]]] , filas : Int) : [[[(Int,Int,Int)]]] =
-	[listaimg[i][|cab(listaimg)|*k/filas .. |cab(listaimg)|*(k+1)/filas) | k<-[0..filas),i<-[0..|listaimg|)];
-	# separo horizonalmente las imagenes ya separadas verticalmente 
-
-	aux EsRectangular(img:[[(Int, Int, Int)]]) : Bool = (∀ a<-img) |a| == |cab(img)|;
-
-	aux Alto(img:[[(Int, Int, Int)]]) : Int = |img|;
-	aux Ancho(img:[[(Int, Int, Int)]]) : Int = (if |img| == 0 then 0 else |cab(img)| );
-
-	aux cuenta(x : T, a : [T]) : Int = long([y | y <- a, y == x]);
-
-	aux mismos(a, b : [T]) : Bool =
-	(|a| == |b| ^ (∀c<- a) cuenta(c, a) == cuenta(c, b));
 }
 
+aux SepararVertical(img:[[(Int,Int,Int)]], columnas : Int) : [[[(Int,Int,Int)]]] = 
+[VerticalizarImagen(img,columnas)[i*Alto(img)..(i+1)*Alto(img)) | i<-[0..columnas) ];
+# separo la imagen vertical fea en las imagenes cortadas verticalmente lindas
+
+aux VerticalizarImagen (img: [[(Int,Int,Int)]], columnas:Int) : [[(Int,Int,Int)]] = 
+[img[i][Ancho(img)*k/columnas .. Ancho(img)*(k+1)/columnas) | k<-[0..columnas), i<-[0..Alto(img)) ];
+# agrupo las filas de pixeles cortados de manera que pueda separarlos en imagenes en SepararVertical 
+
+aux SepararHorizontal (listaimg:[[[(Int,Int,Int)]]] , filas : Int) : [[[(Int,Int,Int)]]] =
+[listaimg[i][|cab(listaimg)|*k/filas .. |cab(listaimg)|*(k+1)/filas) | k<-[0..filas),i<-[0..|listaimg|)];
+# separo horizonalmente las imagenes ya separadas verticalmente 
+
+aux EsRectangular(img:[[(Int, Int, Int)]]) : Bool = (∀ a<-img) |a| == |cab(img)|;
+
+aux Alto(img:[[(Int, Int, Int)]]) : Int = |img|;
+aux Ancho(img:[[(Int, Int, Int)]]) : Int = (if |img| == 0 then 0 else |cab(img)| );
+
+aux cuenta(x : T, a : [T]) : Int = long([y | y <- a, y == x]);
+
+aux mismos(a, b : [T]) : Bool =
+(|a| == |b| ^ (∀c<- a) cuenta(c, a) == cuenta(c, b));
