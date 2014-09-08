@@ -1,0 +1,65 @@
+problema pegar(imagen, parche:[[(Int, Int, Int)]], color:(Int,Int,Int)) {
+	
+	modifica imagen;
+
+	requiere entradaEsRectangular: esRectangular(imagen);
+	requiere parcheEsRectangular: esRectangular(parche);
+
+	requiere entradaTieneSuperficie: alto(parche) > 0 && ancho(parche) > 0;
+	requiere imagenMasGrande: alto(parche) <= alto(imagen) && ancho(parche) <= ancho(imagen);
+
+	requiere todosLosPixelsSonValidos:  (∀ f<-imagen) (∀ px<-f) esPixelValido(px);
+	requiere todosLosPixelsSonValidos2:  (∀ f<-parche) (∀ px<-f) esPixelValido(px);
+	requiere colorValido: esPixelValido(color);
+
+	asegura imagenTieneMismoTamaño: alto(ret) == alto(imagen) && ancho(ret) == ancho(imagen);
+	asegura: if existeDestino(pre(imagen), parche, color))
+		then estaPegado(parche, pre(imagen), imagen, destino(pre(imagen), parche, color))
+		else imagen == pre(imagen);
+}
+
+
+
+aux existeDestino(img, parche:[[(Int, Int, Int)]], color:(Int,Int,Int)) : Bool = 
+	|posiblesDestinos(img, parche, color)| == 1 && noExistenPuntosAfuera(img, color, cab(posiblesDestinos(img, parche, color)));
+	
+aux noExistenPuntosAfuera(img:[[(Int, Int, Int)]], color:(Int,Int,Int), r:((Int, Int), (Int, Int))) : Bool =
+	(∀ yx <- obtengoPuntos(img, color)) (y(r) <= pre(yx) < y(r) + h(r) && x(r) <= sgd(yx) < x(r) + w(r))
+
+#	(E a <- posiblesDestinos(img, parche, color)) (∀ b <- posiblesDestinos(img, parche, color)) contiene(a, b);
+
+aux posiblesDestinos(img, parche:[[(Int, Int, Int)]], color:(Int,Int,Int)) : [((Int, Int), (Int, Int))] = 
+	[r | r <- posiblesRectangulos(img, parche), esDeColor(img, r, color)]
+
+aux posiblesRectangulos(img, parche:[[(Int, Int, Int)]] : [((Int, Int), (Int, Int))] = 
+	[ r(y, x, alto(parche), ancho(parche)) | y <- [0..alto(img)-alto(parche)), x <- [0..ancho(img)-ancho(parche))];
+
+aux esDeColor(img:[[(Int, Int, Int)]], r:((Int, Int), (Int, Int)), color:(Int, Int, Int)) : Bool = 
+	(∀ y <- [y(r)..y(r)+h(r)), x <- [x(r)..x(r)+w(r))) pixel(img, y, x) == color;
+
+aux obtengoPuntos(img:[[(Int, Int, Int)]], color:(Int,Int,Int)) : [(Int, Int)] = 
+	[ (y, x) | y <- [0..alto(img)), x <- [0..ancho(img)), img[y][x] == color ];
+
+
+aux destino(img, parche:[[(Int, Int, Int)]], color:(Int,Int,Int)) : ((Int, Int), (Int, Int)) =
+	if existeDestino(img, parche, color) then cab(posiblesDestinos(img, parche, color)) else ((0,0), (0, 0)); # Null rectangle
+
+
+aux estaPegado(parche, preimg, img:[[(Int, Int, Int)]], r:((Int, Int), (Int, Int))) : Bool =
+	(∀ i<-[0..Alto(img)) j<-[0..Ancho(img)) if (prm(pos) <= i < prm(pos) + alto(parche) && seg(pos) <= j <seg(pos) + Ancho(parche))
+    	then img[i][j] == parche[i-prm(pos)][j-seg(pos)];
+    	else img[i][j] == preimg[i][j];
+
+
+aux rect(y, x, h, w: Int) : ((Int, Int), (Int, Int)) = ((y, x), (h, w));
+aux x(rect:((Int, Int), (Int, Int))) : Int = prm(pre(rect));
+aux y(rect:((Int, Int), (Int, Int))) : Int = prm(sgd(rect));
+aux w(rect:((Int, Int), (Int, Int))) : Int = sgd(prm(rect));
+aux h(rect:((Int, Int), (Int, Int))) : Int = sgd(sgd(rect));
+
+
+aux esIndiceValido( y, x, img)
+
+aux pixel( img, y, x)
+
+
