@@ -1,11 +1,12 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.2)  5 SEP 2014 19:39
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.9.5)  8 SEP 2014 10:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **"AED1 - TP1.tex"
 (./AED1 - TP1.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -29,9 +30,32 @@ Package: a4wide 1994/08/30
 (/usr/share/texlive/texmf-dist/tex/latex/ntgclass/a4.sty
 Package: a4 2004/04/15 v1.2g A4 based page layout
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/mh/mathtools.sty
+Package: mathtools 2012/04/24 v1.12 mathematical typesetting tools
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count87
+\calc@Bcount=\count88
+\calc@Adimen=\dimen103
+\calc@Bdimen=\dimen104
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count89
+\calc@Cskip=\skip45
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mh/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2013/01/14 v2.14 AMS math features
-\@mathmargin=\skip43
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip46
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -39,82 +63,92 @@ Package: amstext 2000/06/29 v2.01
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks14
-\ex@=\dimen103
+\@emptytoks=\toks15
+\ex@=\dimen105
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen104
+\pmbraise@=\dimen106
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count87
-LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count88
-\leftroot@=\count89
-LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count90
-\DOTSCASE@=\count91
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+\inf@bad=\count90
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count91
+\leftroot@=\count92
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count93
+\DOTSCASE@=\count94
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
-\big@size=\dimen105
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count92
-\c@MaxMatrixCols=\count93
+\big@size=\dimen107
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count95
+\c@MaxMatrixCols=\count96
 \dotsspace@=\muskip10
-\c@parentequation=\count94
-\dspbrk@lvl=\count95
-\tag@help=\toks15
-\row@=\count96
-\column@=\count97
-\maxfields@=\count98
-\andhelp@=\toks16
-\eqnshift@=\dimen106
-\alignsep@=\dimen107
-\tagshift@=\dimen108
-\tagwidth@=\dimen109
-\totwidth@=\dimen110
-\lineht@=\dimen111
-\@envbody=\toks17
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks18
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+\c@parentequation=\count97
+\dspbrk@lvl=\count98
+\tag@help=\toks16
+\row@=\count99
+\column@=\count100
+\maxfields@=\count101
+\andhelp@=\toks17
+\eqnshift@=\dimen108
+\alignsep@=\dimen109
+\tagshift@=\dimen110
+\tagwidth@=\dimen111
+\totwidth@=\dimen112
+\lineht@=\dimen113
+\@envbody=\toks18
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+\g_MT_multlinerow_int=\count102
+\l_MT_multwidth_dim=\dimen114
+\origjot=\skip49
+\l_MT_shortvdotswithinadjustabove_dim=\dimen115
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen116
+\l_MT_above_intertext_dim=\dimen117
+\l_MT_below_intertext_dim=\dimen118
+\l_MT_above_shortintertext_dim=\dimen119
+\l_MT_below_shortintertext_dim=\dimen120
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amscd.sty
-Package: amscd 1999/11/29 v2.0
-\athelp@=\toks19
-\minaw@=\dimen112
-\bigaw@=\dimen113
-\minCDarrowwidth=\dimen114
+Package: amscd 1999/11/29 v1.2d
+\athelp@=\toks20
+\minaw@=\dimen121
+\bigaw@=\dimen122
+\minCDarrowwidth=\dimen123
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
+Package: amssymb 2009/06/22 v3.00
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2004/08/06 v2.20
-\thm@style=\toks20
-\thm@bodyfont=\toks21
-\thm@headfont=\toks22
-\thm@notefont=\toks23
-\thm@headpunct=\toks24
-\thm@preskip=\skip46
-\thm@postskip=\skip47
-\thm@headsep=\skip48
-\dth@everypar=\toks25
+Package: amsthm 2009/07/02 v2.20.1
+\thm@style=\toks21
+\thm@bodyfont=\toks22
+\thm@headfont=\toks23
+\thm@notefont=\toks24
+\thm@headpunct=\toks25
+\thm@preskip=\skip50
+\thm@postskip=\skip51
+\thm@headsep=\skip52
+\dth@everypar=\toks26
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
@@ -123,28 +157,33 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2013/12/03 3.9h The Babel package
+Package: babel 2008/07/08 v3.8m The Babel package
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
-Language: spanish.ldf 2014/01/29 v5.0m Spanish support from the babel system
+(/usr/share/texlive/texmf-dist/tex/generic/babel/spanish.ldf
+Language: spanish.ldf 2011/10/06 v5.0k Spanish support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2013/12/03 3.9h Babel common definitions
-\babel@savecnt=\count99
-\U@D=\dimen115
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count103
+\U@D=\dimen124
 )
-\es@datefmt=\count100
-\es@quottoks=\toks26
-\es@quotdepth=\count101
+
+Package babel Warning: No hyphenation patterns were loaded for
+(babel)                the language `Spanish'
+(babel)                I will use the patterns loaded for \language=0 instead.
+
+\l@spanish = a dialect from \language0
+\es@datefmt=\count104
+\es@quottoks=\toks27
+\es@quotdepth=\count105
 Package babel Info: Making " an active character on input line 496.
 Package babel Info: Making . an active character on input line 599.
 Package babel Info: Making < an active character on input line 644.
 Package babel Info: Making > an active character on input line 644.
-))
-(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
-\inpenc@prehook=\toks27
-\inpenc@posthook=\toks28
+\inpenc@prehook=\toks28
+\inpenc@posthook=\toks29
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
@@ -361,10 +400,6 @@ Now handling font encoding U ...
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks29
-)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
@@ -376,54 +411,54 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count102
-\Gm@cntv=\count103
-\c@Gm@tempcnt=\count104
-\Gm@bindingoffset=\dimen116
-\Gm@wd@mp=\dimen117
-\Gm@odd@mp=\dimen118
-\Gm@even@mp=\dimen119
-\Gm@layoutwidth=\dimen120
-\Gm@layoutheight=\dimen121
-\Gm@layouthoffset=\dimen122
-\Gm@layoutvoffset=\dimen123
+\Gm@cnth=\count106
+\Gm@cntv=\count107
+\c@Gm@tempcnt=\count108
+\Gm@bindingoffset=\dimen125
+\Gm@wd@mp=\dimen126
+\Gm@odd@mp=\dimen127
+\Gm@even@mp=\dimen128
+\Gm@layoutwidth=\dimen129
+\Gm@layoutheight=\dimen130
+\Gm@layouthoffset=\dimen131
+\Gm@layoutvoffset=\dimen132
 \Gm@dimlist=\toks30
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip49
-\f@ncyO@elh=\skip50
-\f@ncyO@erh=\skip51
-\f@ncyO@olh=\skip52
-\f@ncyO@orh=\skip53
-\f@ncyO@elf=\skip54
-\f@ncyO@erf=\skip55
-\f@ncyO@olf=\skip56
-\f@ncyO@orf=\skip57
+\fancy@headwidth=\skip53
+\f@ncyO@elh=\skip54
+\f@ncyO@erh=\skip55
+\f@ncyO@olh=\skip56
+\f@ncyO@orh=\skip57
+\f@ncyO@elf=\skip58
+\f@ncyO@erf=\skip59
+\f@ncyO@olf=\skip60
+\f@ncyO@orf=\skip61
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count105
+\lst@mode=\count109
 \lst@gtempboxa=\box28
 \lst@token=\toks31
-\lst@length=\count106
-\lst@currlwidth=\dimen124
-\lst@column=\count107
-\lst@pos=\count108
-\lst@lostspace=\dimen125
-\lst@width=\dimen126
-\lst@newlines=\count109
-\lst@lineno=\count110
-\lst@maxwidth=\dimen127
+\lst@length=\count110
+\lst@currlwidth=\dimen133
+\lst@column=\count111
+\lst@pos=\count112
+\lst@lostspace=\dimen134
+\lst@width=\dimen135
+\lst@newlines=\count113
+\lst@lineno=\count114
+\lst@maxwidth=\dimen136
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
-\c@lstnumber=\count111
-\lst@skipnumbers=\count112
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count115
+\lst@skipnumbers=\count116
 \lst@framebox=\box29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2013/08/26 1.5b listings configuration
+File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
-Package: listings 2013/08/26 1.5b (Carsten Heinz)
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
@@ -434,20 +469,20 @@ Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip58
-\LTright=\skip59
-\LTpre=\skip60
-\LTpost=\skip61
-\LTchunksize=\count113
-\LTcapwidth=\dimen128
+\LTleft=\skip62
+\LTright=\skip63
+\LTpre=\skip64
+\LTpost=\skip65
+\LTchunksize=\count117
+\LTcapwidth=\dimen137
 \LT@head=\box30
 \LT@firsthead=\box31
 \LT@foot=\box32
 \LT@lastfoot=\box33
-\LT@cols=\count114
-\LT@rows=\count115
-\c@LT@tables=\count116
-\c@LT@chunks=\count117
+\LT@cols=\count118
+\LT@rows=\count119
+\c@LT@tables=\count120
+\c@LT@chunks=\count121
 \LT@p@ftn=\toks33
 ) (./caratula.sty
 Package: caratula 2005/08/09 v0.3 Para componer caratulas de TPs del DC
@@ -475,10 +510,10 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count118
+\Gread@gobject=\count122
 ))
-\Gin@req@height=\dimen129
-\Gin@req@width=\dimen130
+\Gin@req@height=\dimen138
+\Gin@req@width=\dimen139
 )
 Cargando package 'caratula' v0.3 (2005/08/09)
 \intlist=\toks34
@@ -487,7 +522,7 @@ Cargando package 'caratula' v0.3 (2005/08/09)
 \openout2 = `algo1-cmds.aux'.
 
 (./algo1-cmds.tex
-\c@exercise=\count119
+\c@exercise=\count123
 ) (./AED1 - TP1.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
@@ -543,19 +578,19 @@ LaTeX Info: Redefining \% on input line 27.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count120
+\c@lstlisting=\count124
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count121
-\scratchdimen=\dimen131
+\scratchcounter=\count125
+\scratchdimen=\dimen140
 \scratchbox=\box34
-\nofMPsegments=\count122
-\nofMParguments=\count123
+\nofMPsegments=\count126
+\nofMParguments=\count127
 \everyMPshowfont=\toks35
-\MPscratchCnt=\count124
-\MPscratchDim=\dimen132
-\MPnumerator=\count125
-\makeMPintoPDFobject=\count126
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen141
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
 \everyMPtoPDFconversion=\toks36
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -613,12 +648,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--40
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 40.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+lasy on input line 40.
 
@@ -646,46 +681,111 @@ Overfull \hbox (22.05222pt too wide) in paragraph at lines 40--40
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo_dc.jpg> <./logo_uba
 .jpg>]
-Overfull \hbox (126.53178pt too wide) in paragraph at lines 74--75
-\OT1/cmr/m/n/10 )) \OML/cmm/m/it/10 if esKCompleto\OT1/cmr/m/n/10 (\OML/cmm/m/i
-t/10 KVecinos\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 imagen; y; x; k\OT1/cmr/m/n/10 )
-\OML/cmm/m/it/10 ; k\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 then esPromedio\OT1/cmr/
-m/n/10 (\OML/cmm/m/it/10 res; imagen; y; x; k\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10
- else esNegativo\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res; y; x\OT1/cmr/m/n/10 )$;|
- 
+Underfull \hbox (badness 4726) in paragraph at lines 81--82
+[]\OT1/cmss/m/n/10 asegura con-ser-vaDi-men-ciones: $\OML/cmm/m/it/10 alto\OT1/
+cmr/m/n/10 (\OML/cmm/m/it/10 res\OT1/cmr/m/n/10 ) == \OML/cmm/m/it/10 alto\OT1/
+cmr/m/n/10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cm
+m/m/it/10 ancho\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res\OT1/cmr/m/n/10 ) ==
+ []
+
+
+Underfull \hbox (badness 4726) in paragraph at lines 134--135
+[]\OT1/cmss/m/n/10 asegura con-ser-vaDi-men-ciones: $\OML/cmm/m/it/10 alto\OT1/
+cmr/m/n/10 (\OML/cmm/m/it/10 res\OT1/cmr/m/n/10 ) == \OML/cmm/m/it/10 alto\OT1/
+cmr/m/n/10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cm
+m/m/it/10 ancho\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res\OT1/cmr/m/n/10 ) ==
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+[]\OT1/cmr/m/n/10 ...
+ []
+
+
+Overfull \hbox (33.08191pt too wide) in paragraph at lines 178--191
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res;
+  y;  x\OT1/cmr/m/n/10 )) == [] \OMS/cmsy/m/n/10 ^$ 
+ []
+
+
+Overfull \hbox (28.58188pt too wide) in paragraph at lines 178--191
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res;
+  y;  x\OT1/cmr/m/n/10 )) == [] \OMS/cmsy/m/n/10 ^$ 
+ []
+
+
+Overfull \hbox (22.1652pt too wide) in paragraph at lines 178--191
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res;
+  y;  x\OT1/cmr/m/n/10 )) == [] ;$ 
  []
 
 [2
 
-] (./AED1 - TP1.aux
+]
+Overfull \hbox (44.66026pt too wide) in paragraph at lines 194--195
+[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 esNegro\OT1/cmr/m/n/10 (\OML/cmm/m/it/
+10 img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\O
+ML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ;  y; x \OT
+1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : [] = \OML/cmm/m/it/10 prm\OT1
+/cmr/m/n/10 (\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 img;  y;  
+x\OT1/cmr/m/n/10 )) == 0  \OMS/cmsy/m/n/10 ^  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/
+10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 img;  y;  x\OT1/cmr/m/n/10 )) ==
+ []
+
+
+Overfull \hbox (48.40405pt too wide) in paragraph at lines 198--199
+[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
+ img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML
+/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ;  y; x \OT1/
+cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : (\U/msb/m/n/10 Z\OML/cmm/m/it/1
+0 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) =  [] \O
+ML/cmm/m/it/10 esIndiceValido\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y;  x;  img\OT1/
+cmr/m/n/10 ) [] \OML/cmm/m/it/10 img\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 y\OT1/cmr
+/m/n/10 ][\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ] [] (0\OML/cmm/m/it/10 ;  \OT1/cmr
+/m/n/10 0\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 0)$; 
+ []
+
+
+Overfull \hbox (34.88162pt too wide) in paragraph at lines 260--264
+[]\OML/cmm/m/it/10 listaimg\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 ]
+[\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 cab\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 listai
+mg\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 k=filas :: \OMS/cmsy/m/n/
+10 j\OML/cmm/m/it/10 cab\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 listaimg\OT1/cmr/m/n/
+10 )\OMS/cmsy/m/n/10 j\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k \OT1/cmr/m/n/10 + 1)\
+OML/cmm/m/it/10 =filas\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 k \OMS/cmsy/m/n/10 
+  \OT1/cmr/m/n/10 [0 \OML/cmm/m/it/10 :: filas\OT1/cmr/m/n/10 )\OML/cmm/m/it/10
+ ;  i \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 [0 \OML/cmm/m/it/10 :: \OMS/cmsy/m/n/1
+0 j\OML/cmm/m/it/10 listaimg\OMS/cmsy/m/n/10 j\OT1/cmr/m/n/10 )[];$ 
+ []
+
+[3] (./AED1 - TP1.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 5636 strings out of 493304
- 74287 string characters out of 6139872
- 157476 words of memory out of 5000000
- 8978 multiletter control sequences out of 15000+600000
- 8595 words of font info for 35 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 37i,12n,43p,267b,241s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 6067 strings out of 495059
+ 81723 string characters out of 3182031
+ 164432 words of memory out of 3000000
+ 9125 multiletter control sequences out of 15000+200000
+ 9195 words of font info for 37 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 37i,12n,43p,272b,284s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
-.pfb>
-Output written on "AED1 - TP1.pdf" (2 pages, 505005 bytes).
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb>
+Output written on "AED1 - TP1.pdf" (3 pages, 502039 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 64 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
