@@ -252,14 +252,16 @@
 	\item \auxil{pixel(img:[[(\ent,\ent,\ent)]],\ y,x:\ent) : (\ent,\ent,\ent)}{
 		 \IF esIndiceValido(y,\ x,\ img) \THEN img[y][x] \ELSE (0,\ 0,\ 0)
 	}
-	\item \auxil{kVecinos(img:[[(\ent,\ent,\ent)]],\ y,x,k:\ent) : [(\ent,\ent,\ent)]}{
+	\item \auxilml{kVecinos(img:[[(\ent,\ent,\ent)]],\ y,x,k:\ent) : [(\ent,\ent,\ent)]}{}
+	\auxnl{ 
 		[pixel(img,\ \prm{c},\ \sgd{c})\ |\ c \selec kIndices(y,\ x,\ k),\ esIndiceValido(\prm{c},\ \sgd{c},\ img)]
 	}
 	\item \auxil{kIndices(y,x,k:\ent) : [(\ent,\ent)]}{
 		[(i,\ j)\ |\ i \selec (y-k\,..\,y+k),\ j \selec (x-k\,..\,x+k)]
 	}
 	
-	\item \auxil{esIndiceValido(y,x:\ent,\ img:[[(\ent,\ent,\ent)]]) : \bool}{
+	\item \auxilml{esIndiceValido(y,x:\ent,\ img:[[(\ent,\ent,\ent)]]) : \bool}{}
+	\auxnl{ 
 		0 \leq y < alto(img) \land 0 \leq x < ancho(img)
 	}
 	
@@ -310,12 +312,16 @@
 	
 	\item \auxilml{verticalizarImagen(img:[[(\ent,\ent,\ent)]],\ columnas:\ent) : [[(\ent,\ent,\ent)]]}{}
 	\auxnl{
-		\big[img[i][Ancho(img)k/columnas\,..\,Ancho(img)(k+1)/columnas)\ \big|\ k \selec [0\,..\,columnas),\ i \selec [0\,..\,Alto(img))\big];
+		\big[img[i][Ancho(img)k/columnas\,..\,Ancho(img)(k+1)/columnas)\ 
+	}\auxnl{
+		\big|\ k \selec [0\,..\,columnas),\ i \selec [0\,..\,Alto(img))\big];
 	}
 		
 	\item \auxilml{separarHorizontal(listaimg:[[[(\ent,\ent,\ent)]]],\ filas:\ent) : [[[(\ent,\ent,\ent)]]]}{}
 	\auxnl{
-		\big[  listaimg[i][|cab(listaimg)|k/filas\,..\,|cab(listaimg)|(k+1)/filas)\ \big|\ k \selec [0\,..\,filas),\ i \selec [0\,..\,|listaimg|)  \big];
+		\big[  listaimg[i][|cab(listaimg)|k/filas\,..\,|cab(listaimg)|(k+1)/filas)\ 
+	}\auxnl{
+		\big|\ k \selec [0\,..\,filas),\ i \selec [0\,..\,|listaimg|)  \big];
 	}
 	
 	\item \auxil{cuenta(x:T,\ a:[T]) : \ent}{
