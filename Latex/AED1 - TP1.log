@@ -1,11 +1,12 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.2)  8 SEP 2014 13:51
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.9.5)  8 SEP 2014 16:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **"AED1 - TP1.tex"
 (./AED1 - TP1.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -30,7 +31,7 @@ Package: a4wide 1994/08/30
 Package: a4 2004/04/15 v1.2g A4 based page layout
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2013/01/14 v2.14 AMS math features
+Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
@@ -50,20 +51,20 @@ Package: amsbsy 1999/11/29 v1.2d
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count87
-LaTeX Info: Redefining \frac on input line 210.
+LaTeX Info: Redefining \frac on input line 211.
 \uproot@=\count88
 \leftroot@=\count89
-LaTeX Info: Redefining \overline on input line 306.
+LaTeX Info: Redefining \overline on input line 307.
 \classnum@=\count90
 \DOTSCASE@=\count91
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen105
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \macc@depth=\count92
 \c@MaxMatrixCols=\count93
 \dotsspace@=\muskip10
@@ -84,28 +85,28 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip44
 \multlinetaggap=\skip45
 \mathdisplay@stack=\toks18
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amscd.sty
-Package: amscd 1999/11/29 v2.0
+Package: amscd 1999/11/29 v1.2d
 \athelp@=\toks19
 \minaw@=\dimen112
 \bigaw@=\dimen113
 \minCDarrowwidth=\dimen114
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
+Package: amssymb 2009/06/22 v3.00
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2004/08/06 v2.20
+Package: amsthm 2009/07/02 v2.20.1
 \thm@style=\toks20
 \thm@bodyfont=\toks21
 \thm@headfont=\toks22
@@ -123,16 +124,22 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2013/12/03 3.9h The Babel package
+Package: babel 2008/07/08 v3.8m The Babel package
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
-Language: spanish.ldf 2014/01/29 v5.0m Spanish support from the babel system
+(/usr/share/texlive/texmf-dist/tex/generic/babel/spanish.ldf
+Language: spanish.ldf 2011/10/06 v5.0k Spanish support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2013/12/03 3.9h Babel common definitions
+File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count99
 \U@D=\dimen115
 )
+
+Package babel Warning: No hyphenation patterns were loaded for
+(babel)                the language `Spanish'
+(babel)                I will use the patterns loaded for \language=0 instead.
+
+\l@spanish = a dialect from \language0
 \es@datefmt=\count100
 \es@quottoks=\toks26
 \es@quotdepth=\count101
@@ -140,8 +147,7 @@ Package babel Info: Making " an active character on input line 496.
 Package babel Info: Making . an active character on input line 599.
 Package babel Info: Making < an active character on input line 644.
 Package babel Info: Making > an active character on input line 644.
-))
-(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks27
 \inpenc@posthook=\toks28
@@ -415,15 +421,15 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \lst@maxwidth=\dimen127
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 \c@lstnumber=\count111
 \lst@skipnumbers=\count112
 \lst@framebox=\box29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2013/08/26 1.5b listings configuration
+File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
-Package: listings 2013/08/26 1.5b (Carsten Heinz)
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
@@ -613,12 +619,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--40
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 40.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+lasy on input line 40.
 
@@ -646,153 +652,71 @@ Overfull \hbox (22.05222pt too wide) in paragraph at lines 40--40
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo_dc.jpg> <./logo_uba
 .jpg>]
-Overfull \hbox (126.53178pt too wide) in paragraph at lines 74--75
-\OT1/cmr/m/n/10 )) \OML/cmm/m/it/10 if esKCompleto\OT1/cmr/m/n/10 (\OML/cmm/m/i
-t/10 KVecinos\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 imagen; y; x; k\OT1/cmr/m/n/10 )
-\OML/cmm/m/it/10 ; k\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 then esPromedio\OT1/cmr/
-m/n/10 (\OML/cmm/m/it/10 res; imagen; y; x; k\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10
- else esNegativo\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res; y; x\OT1/cmr/m/n/10 )$;|
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
-[]\OT1/cmss/m/n/10 asegura ima-gen2ContenidaEnRect: $\OML/cmm/m/it/10 if Ancho\
-OT1/cmr/m/n/10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 2) \OMS/cmsy/m/n/10 ^^T
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
-\OML/cmm/m/it/10 Ancho\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 rectaPixel\OT1/cmr/m/n/
-10 (\OML/cmm/m/it/10 pre\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10
- )\OML/cmm/m/it/10 ; pixel\OT1/cmr/m/n/10 ))  \OMS/cmsy/m/n/10 ^  \OML/cmm/m/it
-/10 Alto\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 2) \OMS/cmsy/m/
-n/10 ^^T
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
-\OML/cmm/m/it/10 Alto\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 rectaPixel\OT1/cmr/m/n/1
-0 (\OML/cmm/m/it/10 pre\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 
-)\OML/cmm/m/it/10 ; pixel\OT1/cmr/m/n/10 )) \OML/cmm/m/it/10 then imagen \OT1/c
-mr/m/n/10 ==
- []
-
-
-Overfull \hbox (145.4114pt too wide) in paragraph at lines 119--120
-\OML/cmm/m/it/10 pegoImagenes\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 pre\OT1/cmr/m/n/
-10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  pegoImagenes\OT
-1/cmr/m/n/10 (\OML/cmm/m/it/10 rectaPixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 pre\
-OT1/cmr/m/n/10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; pixe
-l\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  imagen\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ;
-  \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 0)\OML/cmm/m/it/10 ;  ; 
- \OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 else pre\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i
-magen\OT1/cmr/m/n/10 ) ==
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
-[]\OT1/cmss/m/n/10 asegura ima-gen-Tie-ne-Mis-mo-Ta-ma~no: $\OML/cmm/m/it/10 Al
-to\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 pre\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 imagen
-\OT1/cmr/m/n/10 )) == \OML/cmm/m/it/10 Alto\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 im
-agen\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^
+Overfull \hbox (25.34966pt too wide) in paragraph at lines 166--167
+[]  $ [] \OML/cmm/m/it/10 estaPegado\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 parche;  
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  
+imagen;  destino\OT1/cmr/m/n/10 ([](\OML/cmm/m/it/10 imagen\OT1/cmr/m/n/10 )\OM
+L/cmm/m/it/10 ;  parche;  color\OT1/cmr/m/n/10 ))$| 
  []
 
 [2
 
 ]
-Overfull \hbox (42.61674pt too wide) in paragraph at lines 171--172
-[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 Pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
+Overfull \hbox (33.08191pt too wide) in paragraph at lines 231--244
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res;
+  y;  x\OT1/cmr/m/n/10 )) == [] \OMS/cmsy/m/n/10 ^$ 
+ []
+
+
+Overfull \hbox (28.58188pt too wide) in paragraph at lines 231--244
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res;
+  y;  x\OT1/cmr/m/n/10 )) == [] \OMS/cmsy/m/n/10 ^$ 
+ []
+
+
+Overfull \hbox (22.1652pt too wide) in paragraph at lines 231--244
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 res;
+  y;  x\OT1/cmr/m/n/10 )) == [] ;$ 
+ []
+
+
+Overfull \hbox (48.40405pt too wide) in paragraph at lines 254--255
+[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
  img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML
-/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ; y; x \OT1/c
-mr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : (\U/msb/m/n/10 Z\OML/cmm/m/it/10
- ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) = \OML/cm
-m/m/it/10 if esIndiceValido\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y; x; img\OT1/cmr/
-m/n/10 ) \OML/cmm/m/it/10 then img\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 y\OT1/cmr/m
-/n/10 ][\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ] \OML/cmm/m/it/10 else\OT1/cmr/m/n/1
-0 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)$;
- 
+/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ;  y; x \OT1/
+cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : (\U/msb/m/n/10 Z\OML/cmm/m/it/1
+0 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) =  [] \O
+ML/cmm/m/it/10 esIndiceValido\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y;  x;  img\OT1/
+cmr/m/n/10 ) [] \OML/cmm/m/it/10 img\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 y\OT1/cmr
+/m/n/10 ][\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ] [] (0\OML/cmm/m/it/10 ;  \OT1/cmr
+/m/n/10 0\OML/cmm/m/it/10 ;  \OT1/cmr/m/n/10 0)$; 
  []
 
 
-Overfull \hbox (224.86186pt too wide) in paragraph at lines 179--180
-[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 EsPromedio\OT1/cmr/m/n/10 (\OML/cmm/m/
-it/10 r; img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/
-10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ; y; 
-x; k \OT1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : [] = [](\OML/cmm/m/it
-/10 Pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 r; y; x\OT1/cmr/m/n/10 )) == ([] [] 
-\OMS/cmsy/m/n/10 ^
+Overfull \hbox (34.88162pt too wide) in paragraph at lines 316--320
+[]\OML/cmm/m/it/10 listaimg\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 ]
+[\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 cab\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 listai
+mg\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 k=filas :: \OMS/cmsy/m/n/
+10 j\OML/cmm/m/it/10 cab\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 listaimg\OT1/cmr/m/n/
+10 )\OMS/cmsy/m/n/10 j\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 k \OT1/cmr/m/n/10 + 1)\
+OML/cmm/m/it/10 =filas\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 k \OMS/cmsy/m/n/10 
+  \OT1/cmr/m/n/10 [0 \OML/cmm/m/it/10 :: filas\OT1/cmr/m/n/10 )\OML/cmm/m/it/10
+ ;  i \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 [0 \OML/cmm/m/it/10 :: \OMS/cmsy/m/n/1
+0 j\OML/cmm/m/it/10 listaimg\OMS/cmsy/m/n/10 j\OT1/cmr/m/n/10 )[];$ 
  []
 
-
-Overfull \hbox (65.04666pt too wide) in paragraph at lines 179--180
-[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 r; y
-; x\OT1/cmr/m/n/10 )) == ([] [] \OMS/cmsy/m/n/10 ^ []\OT1/cmr/m/n/10 (\OML/cmm/
-m/it/10 Pixel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 r; y; x\OT1/cmr/m/n/10 )) ==
- []
-
-
-Overfull \hbox (310.56914pt too wide) in paragraph at lines 191--192
-[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 MedianaONegro\OT1/cmr/m/n/10 (\OML/cmm
-/m/it/10 img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/
-10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ;  i;
- j; k \OT1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : (\U/msb/m/n/10 Z\OML
-/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10
- ) = \OML/cmm/m/it/10 if esKCompleto\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 vectorKve
-cinos\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 img; k; i; j\OT1/cmr/m/n/10 )) \OML/cmm/
-m/it/10 then mediana\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 vectorKvecinos\OT1/cmr/m/
-n/10 (\OML/cmm/m/it/10 img; k; i; j\OT1/cmr/m/n/10 )) \OML/cmm/m/it/10 else\OT1
-/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m
-/n/10 0)$; 
- []
-
-
-Overfull \hbox (75.3456pt too wide) in paragraph at lines 195--196
-[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 mediana\OT1/cmr/m/n/10 (\OML/cmm/m/it/
-10 vector \OT1/cmr/m/n/10 : [(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z
-\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]) : (\U/msb/m/n/10 Z\OML/cm
-m/m/it/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) 
-= (\OML/cmm/m/it/10 valorMediana\OT1/cmr/m/n/10 ([[](\OML/cmm/m/it/10 a\OT1/cmr
-/m/n/10 ) \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 a \OMS/cmsy/m/n/10   \OML/cmm/m/i
-t/10 vector\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ;  valorMediana\OT1/cmr/m/n/10 ([[
-](\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 a \OM
-S/cmsy/m/n/10  
- []
-
-
-Overfull \hbox (69.98915pt too wide) in paragraph at lines 211--212
-[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 SepararVertical\OT1/cmr/m/n/10 (\OML/c
-mm/m/it/10 img \OT1/cmr/m/n/10 : [[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/
-n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]\OML/cmm/m/it/10 ;  
-columnas \OT1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : [[[(\U/msb/m/n/10
- Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/
-m/n/10 )]]] = [\OML/cmm/m/it/10 verticalizarImagen\OT1/cmr/m/n/10 (\OML/cmm/m/i
-t/10 img; columnas\OT1/cmr/m/n/10 )[\OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 ^^C
- []
-
-
-Overfull \hbox (35.72708pt too wide) in paragraph at lines 219--220
-[]\OT1/cmss/m/n/10 aux $\OML/cmm/m/it/10 SepararHorizontal\OT1/cmr/m/n/10 (\OML
-/cmm/m/it/10 listaimg \OT1/cmr/m/n/10 : [[[(\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \
-U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )]]]\OML/cmm/m/
-it/10 ;  filas \OT1/cmr/m/n/10 : \U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) : [[[(\U/msb/
-m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OT
-1/cmr/m/n/10 )]]] = [\OML/cmm/m/it/10 listaimg\OT1/cmr/m/n/10 [\OML/cmm/m/it/10
- i\OT1/cmr/m/n/10 ][[] \OMS/cmsy/m/n/10 ^^C
- []
-
-[3] (./AED1 - TP1.aux
+[3] [4] (./AED1 - TP1.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 5645 strings out of 493304
- 74411 string characters out of 6139872
- 163476 words of memory out of 5000000
- 8986 multiletter control sequences out of 15000+600000
- 9195 words of font info for 37 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 37i,12n,43p,433b,282s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 5545 strings out of 495059
+ 72848 string characters out of 3182031
+ 156396 words of memory out of 3000000
+ 8613 multiletter control sequences out of 15000+200000
+ 9195 words of font info for 37 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 37i,12n,43p,410b,280s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
@@ -804,12 +728,11 @@ public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
-s/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
-/msbm10.pfb>
-Output written on "AED1 - TP1.pdf" (3 pages, 512533 bytes).
+s/msbm10.pfb>
+Output written on "AED1 - TP1.pdf" (4 pages, 505676 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 67 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

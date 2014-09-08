@@ -50,13 +50,13 @@
 % Pueden modularizar el documento incluyendo otros .tex
 % \include{observaciones}
 
-\section{Observaciones}
-
-	\begin{enumerate}
-		\item un item
-		\item otro item
-	\end{enumerate}
-
+%\section{Observaciones}
+%
+%	\begin{enumerate}
+%		\item un item
+%		\item otro item
+%	\end{enumerate}
+%
 % Otro salto de pagina
 % \newpage
 
@@ -66,25 +66,45 @@
 	% EJEMPLO
 	Blur:
 
-	\begin{problema}{blur}{imagen:[[(\ent,\ent,\ent)]], k:\ent}{res:[[(\ent,\ent,\ent)]]}
-		\requiere[kEsPositivo]{k > 0}
-		\requiere[entradaEsRectangular]{EsRectangular(imagen)}
-		\requiere[todosLosPixelsSonValidos]{(\forall f \selec imagen) (\forall px \selec f) ()}
-		\asegura[dimensionesDeSalidaIguales]{Alto(res) == Alto(imagen) \wedge Ancho(res) == Ancho(imagen)}
-		\asegura[aseguraTodo]{(\forall y \selec [0:\mid Alto(imagen)\mid)) (\forall x \selec [0:\mid Ancho(imagen)\mid))\ if\  esKCompleto(KVecinos(imagen, y, x, k), k)\ then\ esPromedio(res, imagen, y, x, k)\ else\ esNegativo(res, y, x)}
+	\begin{problema}{blur}{imagen:[[(\ent,\ent,\ent)]],\ k:\ent}{res:[[(\ent,\ent,\ent)]]}
+		\requiere[]{
+			k > 0
+		}
+		\requiere[]{
+			esImagenValida(imagen)
+		}
+		\asegura[]{
+			mismoTamano(imagen,\ res)
+		}
+		\aseguraml{
+			\left( \forall\ y \selec {[0\,..\,alto(imagen))} \right) \left( \forall\ x \selec {[0\,..\,ancho(imagen))} \right) 
+		}
+		\nuevalinea{ \IF   esKCompleto(kVecinos(imagen,\ y,\ x,\ k),\ k)\ }
+		\nuevalinea{ \THEN esPromedio(res, imagen,\ y,\ x,\ k)\ }
+		\nuevalinea{ \ELSE esNegro(res,\ y,\ x) ;}
 	\end{problema}
 
 \end{ejercicio}
+
 
 \begin{ejercicio}
 	% EJEMPLO
 	Acuarela:
 
-	\begin{problema}{acuarela}{imagen:[[(\ent,\ent,\ent)]], k:\ent}{res:[[(\ent,\ent,\ent)]]}
-		\requiere[kEsPositivo]{k > 0}
-		\requiere[entradaEsRectangular]{EsRectangular(imagen)}
-		\asegura[dimensionesDeSalidaIguales]{Alto(res) == Alto(imagen)\ \wedge\ Ancho(res) == Ancho(imagen)}
-		\asegura[efecto]{(\forall i \selec [0:\longitud{Alto(res)})) (\forall j \selec [0:\longitud{Ancho(res)}))\ res[i][j] == MedianaONegro(i,j,img,k)}
+	\begin{problema}{acuarela}{imagen:[[(\ent,\ent,\ent)]],\ k:\ent}{res:[[(\ent,\ent,\ent)]]}		
+		\requiere[]{
+			k > 0
+		}
+		\requiere[]{
+			esImagenValida(imagen)
+		}
+		\asegura[]{
+			mismoTamano(imagen,\ res)
+		}
+		\aseguraml[]{
+			( \forall\ i \selec [0\,..\,alto(res)),\ j \selec [0\,..\,ancho(res))) 
+		}
+		\nuevalinea{ res[i][j] == medianaONegro(i,\ j,\ img,\ k); }
 	\end{problema}
 	
 \end{ejercicio}
@@ -93,13 +113,27 @@
 	% EJEMPLO
 	Dividir:
 
-	\begin{problema}{dividir}{imagen:[[(\ent,\ent,\ent)]], m,n:\ent}{res:[[(\ent,\ent,\ent)]]}
-		\requiere[nYmEsPositivo]{n > 0 \wedge m > 0}
-		\requiere[entradaTieneSuperficie]{Alto(imagen) > 0\ \wedge\  Ancho(imagen > 0}
-		\requiere[todosLosPixelsSonValidos]{(\forall f \selec imagen) (\forall px \selec f)}
-		\requiere[divideEnFilasIguales]{Alto(imagen)\mod{m} == 0}
-		\requiere[divideEnColumnasIguales]{Ancho(imagen)\mod{n} == 0}		
-		\asegura{mismo(res,SepararHorizontal(SepararVertical(imagen,n),m))}
+	\begin{problema}{dividir}{imagen:[[(\ent,\ent,\ent)]],\ m,n:\ent}{res:[[[(\ent,\ent,\ent)]]]}
+		\requiere[]{
+			0 < n < alto(imagen)
+		}\requiere[]{
+			0 < m < ancho(imagen)
+		}
+		\requiere{
+			esImagenValida(imagen)
+		}
+		\requiere{
+			tieneSuperficie(imagen)
+		}
+		\requiere[divideEnFilasIguales]{
+			alto(imagen)\mod{m} == 0
+		}
+		\requiere[divideEnColumnasIguales]{
+			ancho(imagen)\mod{n} == 0
+		}		
+		\asegura{
+			mismos\left(res,\ separarHorizontal\left(separarVertical(imagen,\ n),\ m\right)\right)
+		}
 	\end{problema}
 
 \end{ejercicio}
@@ -108,16 +142,30 @@
 	% EJEMPLO
 	Pegar:
 
-	\begin{problema}{pegar}{imagen,imagen2:[[(\ent,\ent,\ent)]],\ pixel:(\ent ,\ent ,\ent}{}
+	\begin{problema}{pegar}{imagen:[[(\ent,\ent,\ent)]],\ color:(\ent ,\ent ,\ent),\ parche:[[(\ent,\ent,\ent)]]}{}
 		\modifica{imagen}
-		\requiere[hayRectanguloColorPixelEnImagen]{hayRectangulo(pre(imagen),pixel)}
-		\requiere[entradaEsRectangular]{EsRectangular(pre(imagen))}
-		\requiere[entrada2EsRectangular]{EsRectangular(imagen2)}
-		\requiere[pixelesFormanRectangulo]{EsRectangular(rectaPixel(pre(imagen),pixel))}
-		\requiere[entradaTieneSuperficie]{Alto(pre(imagen)) > 0\ \wedge\  Ancho(pre(imagen) > 0}
-		\requiere[entrada2TieneSuperficie]{Alto(imagen2) > 0\ \wedge\  Ancho(imagen2 > 0}
-		\asegura[imagen2ContenidaEnRect]{if\ Ancho(imagen2) \leq Ancho(rectaPixel(pre(imagen), pixel))\ \wedge\ Alto(imagen2) \leq Alto(rectaPixel(pre(imagen), pixel))\ then\ imagen == pegoImagenes(pre(imagen),\ pegoImagenes(rectaPixel(pre(imagen), pixel),\ imagen2,\ 0,\ 0),\ ,\ )\ else\ pre(imagen) == imagen}
-		\asegura[imagenTieneMismoTamaño]{Alto(pre(imagen)) == Alto(imagen) \wedge Ancho(pre(imagen)) == Ancho(imagen)}
+		\requiere[]{
+			esImagenValida(\pre{imagen})
+		}
+		\requiere[]{
+			esImagenValida(parche)
+		}
+		\requiere[]{
+			tieneSuperficie(parche)
+		}
+		\requiere[]{
+			alto(parche) \leq alto(imagen)\ \land\ ancho(parche) \leq ancho(imagen)
+		}
+		\requiere[]{
+			esByte(color)
+		}
+		\asegura{
+			mismoTamano(imagen,\ \pre{imagen})
+		}		
+		\aseguraml{	\IF existeDestino(\pre{imagen},\ parche, color) }
+		\nuevalinea{ \THEN estaPegado(parche,\ \pre{imagen},\ imagen,\ destino(\pre{imagen},\ parche,\ color)) }
+		\nuevalinea{ \ELSE imagen == \pre{imagen} }
+		
 	\end{problema}
 
 \end{ejercicio}
@@ -144,97 +192,326 @@
 %\end{itemize}
 
 \begin{itemize}
-	\item \auxil{Alto(img:[[(\ent ,\ent ,\ent)]] : \ent}{ \longitud{img}}
+
+	\item \auxilml{esImagenValida(img:[[(\ent,\ent,\ent)]]) : \bool}{ esRectangular(imagen)\ \land\  }
+	\auxnl{ 
+		(\forall\ f \selec imagen) (\forall\ px \selec f)\ esPixelValido(px);
+	}
+	
+	% no es sencillo añadir enies en math mode
+	\item \auxilml{mismoTamano(img, img2:[[(\ent,\ent,\ent)]]) : \bool}{ alto(img) == alto(img2)\ \land }
+	\auxnl{ 
+		 ancho(img) == ancho(img2) ;
+	}
+	\item \auxil{tieneSuperficie(img:[[(\ent,\ent,\ent)]]) : \bool}{ alto(img) > 0\ \land\ ancho(img) > 0}
+	
+	
+	%% PEGADISIMO
+
+	\item \auxil{esRectangular(img:[[(\ent,\ent,\ent)]]) : \bool}{
+		(\forall a \selec img)\ |a| == |\cab{img}|
+	}
+	\item \auxil{esPixelValido(px:(\ent,\ent,\ent)) : \bool}{
+		esByte(\prm{px}) \land esByte(\sgd{px}) \land esByte(\trc{px}) 
+	}
+	\item \auxil{esByte(b:\ent) : \bool}{
+		0 \leq b \leq 255
+	}	
+	\item \auxil{alto(img:[[(\ent,\ent,\ent)]]) : \ent}{
+		|img|
+	}
+	\item \auxil{ancho(img:[[(\ent,\ent,\ent)]]) : \ent}{
+		\IF |img| == 0 \THEN 0 \ELSE |\cab{img}|
+	}
+	
+	\item \auxil{esKCompleto(kv:[(\ent,\ent,\ent)],\ k:\ent) : \bool}{
+		|kv| == \left(k+k-1\right)^2
+	}
+	
+	\item \auxilml{esPromedio(res, img:[[(\ent,\ent,\ent)]],\ y,x,k:\ent) : \bool}{}
+	\auxnl{ 
+		\prm{pixel(res,\ y,\ x)} == 
+		\left({\mathsf{sum}([\prm{p}\ |\ p\selec kVecinos(img,\ y,\ x,\ k)])\ /\ |kVecinos(img,\ y,\ x,\ k)|}\right) \land 
+	}
+	\auxnl{ 
+		\ \sgd{pixel(res,\ y,\ x)} == 
+		\left({\mathsf{sum}([\sgd{p}\ |\ p\selec kVecinos(img,\ y,\ x,\ k)])\ /\ |kVecinos(img,\ y,\ x,\ k)|}\right) \land 
+	}
+	\auxnl{ 
+		\ \sgd{pixel(res,\ y,\ x)} == 
+		\left({\mathsf{sum}([\trc{p}\ |\ p\selec kVecinos(img,\ y,\ x,\ k)])\ /\ |kVecinos(img,\ y,\ x,\ k)|}\right);
+	}
+		
+	\item \auxilml{esNegro(img:[[(\ent,\ent,\ent)]],\ y,x:\ent) : \bool}{
+		\prm{pixel(img,\ y,\ x)} == 0\ \land\
+	}
+	\auxnl{ 
+		\sgd{pixel(img,\ y,\ x)} == 0\ \land\ \trc{pixel(img,\ y,\ x)} == 0 ;
+	}
+	
+	\item \auxil{pixel(img:[[(\ent,\ent,\ent)]],\ y,x:\ent) : (\ent,\ent,\ent)}{
+		 \IF esIndiceValido(y,\ x,\ img) \THEN img[y][x] \ELSE (0,\ 0,\ 0)
+	}
+	\item \auxil{kVecinos(img:[[(\ent,\ent,\ent)]],\ y,x,k:\ent) : [(\ent,\ent,\ent)]}{
+		[pixel(img,\ \prm{c},\ \sgd{c})\ |\ c \selec kIndices(y,\ x,\ k),\ esIndiceValido(\prm{c},\ \sgd{c},\ img)]
+	}
+	\item \auxil{kIndices(y,x,k:\ent) : [(\ent,\ent)]}{
+		[(i,\ j)\ |\ i \selec (y-k\,..\,y+k),\ j \selec (x-k\,..\,x+k)]
+	}
+	
+	\item \auxil{esIndiceValido(y,x:\ent,\ img:[[(\ent,\ent,\ent)]]) : \bool}{
+		0 \leq y < alto(img) \land 0 \leq x < ancho(img)
+	}
+	
+	
+	%acuarela
+
+
+	\item \auxilml{medianaONegro(i,j:\ent,\ img:[[(\ent,\ent,\ent)]],\ k:\ent) : (\ent,\ent,\ent)}{	}
+	\auxnl{ 
+		\IF esKCompleto(kVecinos(img,\ i,\ j,\ k),\ k) 
+	}
+	\auxnl{ 
+		\THEN mediana(kVecinos(img,\ i,\ j,\ k)) 
+	}
+	\auxnl{ 
+		\ELSE (0,\ 0,\ 0);
+	}
+	
+	\item \auxilml{mediana(kv:[(\ent,\ent,\ent)]) : (\ent,\ent,\ent)}{}
+	\auxnl{ 
+		( valorMediana([ \prm{a}\ |\ a \selec kv]),
+	}
+	\auxnl{ 
+		valorMediana([ \sgd{a}\ |\ a \selec kv]),	
+	}
+	\auxnl{ 
+		valorMediana([ \trc{a}\ |\ a \selec kv]));
+	}
+	
+	\item \auxil{valorMediana(xs:[\ent]) : \ent}{
+		enOrden(xs)[|xs|/2]
+	}
+	
+	\item \auxil{enOrden(xs:[\ent]) : [\ent]}{
+		[ x\ |\ i \selec [0\,..\,|xs|),\ x \selec xs,\ cuentaMenores(xs,\ x) == i ]
+	}
+	
+	\item \auxil{cuentaMenores(xs:[\ent],\ x:\ent) : \ent}{
+		|[1\ |\ y \selec xs,\ y < x ]|
+	}
+	
+	% dividir
+	
+	\item \auxilml{separarVertical(img:[[(\ent,\ent,\ent)]],\ columnas:\ent) : [[[(\ent,\ent,\ent)]]]}{}
+	\auxnl{
+		\big[verticalizarImagen(img,\ columnas)[alto(img) i\,..\,alto(img)(i+1))\ \big|\ i \selec [0\,..\,columnas) \big];
+	}
+	
+	\item \auxilml{verticalizarImagen(img:[[(\ent,\ent,\ent)]],\ columnas:\ent) : [[(\ent,\ent,\ent)]]}{}
+	\auxnl{
+		\big[img[i][Ancho(img)k/columnas\,..\,Ancho(img)(k+1)/columnas)\ \big|\ k \selec [0\,..\,columnas),\ i \selec [0\,..\,Alto(img))\big];
+	}
+		
+	\item \auxilml{separarHorizontal(listaimg:[[[(\ent,\ent,\ent)]]],\ filas:\ent) : [[[(\ent,\ent,\ent)]]]}{}
+	\auxnl{
+		\big[  listaimg[i][|cab(listaimg)|k/filas\,..\,|cab(listaimg)|(k+1)/filas)\ \big|\ k \selec [0\,..\,filas),\ i \selec [0\,..\,|listaimg|)  \big];
+	}
+	
+	\item \auxil{cuenta(x:T,\ a:[T]) : \ent}{
+		\big|[ y\ |\ y \selec a,\ y == x ]\big|
+	}
+	
+	\item \auxil{mismos(a,b:[T]) : \bool}{
+		(|a| == |b|) \land ( \forall\ c \selec a)\ cuenta(c,\ a) == cuenta(c,\ b)
+	}
+
+
+
+	% PEGAR
+	
+	\item \auxilml{existeDestino(img, parche:[[(\ent,\ent,\ent)]],\ color:(\ent,\ent,\ent)) : \bool}{}
+	\auxnl{
+		|posiblesDestinos(img,\ parche,\ color)| == 1\ \land\
+	}
+	\auxnl{
+		noExistenPuntosAfuera\big( img,\ color,\ \cab{posiblesDestinos(img,\ parche,\ color)} \big) ;
+	}
+	
+	\item \auxilml{noExistenPuntosAfuera\big(img:[[(\ent,\ent,\ent)]],\ color:(\ent,\ent,\ent),\ r:((\ent,\ent),\ (\ent,\ent))\big) : \bool}{}
+	\auxnl{
+		( \forall\ yx \selec obtengoPuntos(img,\ color))
+	}
+	\auxnl{
+		(y(r) \leq \pre{yx} < y(r) + h(r)\ \land\ x(r) \leq \sgd{yx} < x(r) + w(r));
+	}
+	
+	
+	\item \auxilml{posiblesDestinos(img, parche:[[(\ent,\ent,\ent)]],\ color:(\ent,\ent,\ent)) : [((\ent,\ent),\ (\ent,\ent))]}{}
+	\auxnl{
+		\big[r\ |\ r \selec posiblesRectangulos(img,\ parche),\ esDeColor(img,\ r,\ color)\big]
+	}
+	
+	
+	\item \auxilml{posiblesRectangulos(img, parche:[[(\ent,\ent,\ent)]]) : [((\ent,\ent),\ (\ent,\ent))]}{}
+	\auxnl{
+		\big[ rect(y,\ x,\ alto(parche),\ ancho(parche)) 
+	}
+	\auxnl{
+		\big|\ y \selec [0\,..\,alto(img)-alto(parche)),\ x \selec [0\,..\,ancho(img)-ancho(parche))];
+	}
+	
+	\item \auxilml{esDeColor\big(img:[[(\ent,\ent,\ent)]],\ r:((\ent,\ent),\ (\ent,\ent)),\ color:(\ent,\ent,\ent)\big) : \bool}{}
+	\auxnl{
+		\big(\forall\ y \selec [y(r)\,..\,y(r)+h(r)),\ x \selec [x(r)\,..\,x(r)+w(r))\ \big)\ pixel(img,\ y,\ x) == color;
+	}
+	
+	\item \auxilml{obtengoPuntos\big(img:[[(\ent,\ent,\ent)]],\ color:(\ent,\ent,\ent)\big) : [(\ent, \ent)]}{}
+	\auxnl{
+		\big[\ (y,\ x)\ |\ y \selec [0\,..\,alto(img)),\ x \selec [0\,..\,ancho(img)),\ img[y][x] == color \big];
+	}
+	
+	\item \auxilml{destino(img, parche:[[(\ent,\ent,\ent)]],\ color:(\ent,\ent,\ent)) : ((\ent,\ent),\ (\ent,\ent))}{}
+	\auxnl{
+		\IF existeDestino(img,\ parche,\ color) 
+	}
+	\auxnl{
+		\THEN \cab{posiblesDestinos(img,\ parche,\ color)}
+	}
+	\auxnl{
+		\ELSE ((0,\ 0),\ (0,\ 0));
+	}
+	
+	\item \auxilml{estaPegado\big(parche, preimg, img:[[(\ent,\ent,\ent)]],\ r:((\ent,\ent),\ (\ent,\ent))\big) : \bool}{}
+	\auxnl{
+		\big(\forall\ i \selec [0\,..\,Alto(img)),\ j \selec [0\,..\,Ancho(img)\big) 
+	}
+	\auxnl{
+		\IF \big(prm(pos) \leq i < prm(pos) + alto(parche)\ \land\ seg(pos) \leq j < seg(pos) + ancho(parche)\big)
+	}
+	\auxnl{
+		\THEN img[i][j] == parche[i-prm(pos)][j-seg(pos)];
+	}
+	\auxnl{
+		\ELSE img[i][j] == preimg[i][j];
+	}
+	
+	\item \auxil{rect(y,x,h,w:\ent) : ((\ent,\ent),\ (\ent,\ent))}{
+		((y,\ x),\ (h,\ w))
+	}
+	
+	\item \auxil{y(rect:((\ent,\ent),\ (\ent,\ent))) : \ent}{
+		\prm{\prm{rect}}
+	}
+	\item \auxil{x(rect:((\ent,\ent),\ (\ent,\ent))) : \ent}{
+		\prm{\sgd{rect}}
+	}
+	\item \auxil{h(rect:((\ent,\ent),\ (\ent,\ent))) : \ent}{
+		\sgd{\prm{rect}}
+	}
+	\item \auxil{w(rect:((\ent,\ent),\ (\ent,\ent))) : \ent}{
+		\sgd{\sgd{rect}}
+	}
+	
+
 \end{itemize}
 
-\begin{itemize}
-	\item \auxil{Ancho(img:[[(\ent ,\ent ,\ent)]]) : \ent}{if\ \longitud{img} == 0\  then\ 0\ else \longitud{cab(img)}}
-\end{itemize}
+% ((\ent,\ent),\ (\ent,\ent))
 
-\begin{itemize}
-	\item \auxil{esIndiceValido(y,x: \ent , img:[[(\ent ,\ent ,\ent)]] : \bool}{0 \leqslant y < Alto(img) \wedge 0 \leqslant x < Ancho(img)}
-\end{itemize}
 
-\begin{itemize}
-	\item \auxil{esRectangular(img:[[(\ent ,\ent ,\ent)]] : \bool}{(\forall a\selec img) \longitud{a} == \longitud{cab(img)}}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{KIndices(y,x,k: \ent : [(\ent ,\ent)] }{[(i,j)\ |\ i\selec(y-k:y+k), i\selec(y-k:y+k)]}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{KVecinos(img:[[(\ent ,\ent ,\ent)]], y,x,k: \ent : [(\ent ,\ent ,\ent)]}{[Pixel(img, \prm{c}, \sgd{c})\ |\ c\selec KIndices(y,x,k),\  esIndiceValido(c)]}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{Pixel(img:[[(\ent ,\ent ,\ent)]], y,x:\ent) : (\ent ,\ent ,\ent)}{if\ esIndiceValido(y, x, img)\ then\ img[y][x]\ else (0, 0, 0)}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{EsNegro(r:[[(\ent ,\ent ,\ent)]], y,x:\ent) : \bool}{\prm{Pixel(r,y,x} == 0 \wedge \sgd{Pixel(r,y,x} == 0 \wedge \trc{Pixel(r,y,x} == 0}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{EsPromedio(r,img:[[(\ent ,\ent ,\ent)]], y,x,k:\ent) : \bool}{\prm{Pixel(r,y,x)} == (\sum{\prm{p}\ |\ p\selec KVecinos(img,y,x,k) \longitud{KVecinos(img,y,x,k)}} \wedge \sgd{Pixel(r,y,x)} == (\sum{\sgd{p}\ |\ p\selec KVecinos(img,y,x,k) \longitud{KVecinos(img,y,x,k)}} \wedge \trc{Pixel(r,y,x)} == (\sum{\trc{p}\ |\ p\selec KVecinos(img,y,x,k) \longitud{KVecinos(img,y,x,k)}}}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{EsKCompleto(kv:[(\ent ,\ent ,\ent)],\ k:\ent) : \bool}{\longitud{kv} == (k+k-1)^2}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{VektorKVecinos(img:[[(\ent ,\ent ,\ent)]],\ i,j,k: \ent) : [(\ent ,\ent ,\ent)]}{[img[a][b]\ |\ a\selec [i-k+1:i+k-1],\ b\selec[j-k+1:j+k-1],\ a\geq 0\ \wedge\ b\geq 0\ \wedge\ a < Alto(img)\ \wedge\ b < Ancho(img)]}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{MedianaONegro(img:[[(\ent ,\ent ,\ent)]],\ i,j,k: \ent) : (\ent ,\ent ,\ent)}{if\ esKCompleto(vectorKvecinos(img,k,i,j))\ then\ mediana(vectorKvecinos(img,k,i,j))\ else (0,0,0)}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{mediana(vector:[(\ent ,\ent ,\ent)]) : (\ent ,\ent ,\ent)}{(valorMediana([\prm{a}\ |\ a\selec vector],\ valorMediana([\sgd{a}\ |\ a\selec vector],\ valorMediana([\trc{a}\ |\ a\selec vector])}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{valorMediana(xs:[\ent]) : \ent}{enOrden(xs)[\longitud{xs}\ $div$\ 2]}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{enOrden(xs:[\ent]) : [\ent]}{[x\ |\ i\selec [0:\longitud{xs}),\ x\selec xs,\ cuentaMenores(xs,x) == i]}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{cuentaMenores(xs:[\ent],\ x:\ent) : \ent}{\longitud{[1\ |\ y\ xs,\ y < x]}}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{SepararVertical(img:[[(\ent ,\ent ,\ent)]],\ columnas: \ent) : [[[(\ent ,\ent ,\ent)]]]}{[verticalizarImagen(img,columnas)[i*Alto(img)..(i+1)*Alto(img))\ |\ i\selec[0..columnas)]}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{verticalizarImagen(img:[[(\ent ,\ent ,\ent)]],\ columnas: \ent) : [[(\ent ,\ent ,\ent)]]}{[img[i][Ancho(img)*k\ $div$\ columnas..Ancho(img)*(k+1\ $div$\ columnas)]\ |\ k\selec [0..columnas),\ i\selec[0..Alto(img))]}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{SepararHorizontal(listaimg:[[[(\ent ,\ent ,\ent)]]],\ filas: \ent) : [[[(\ent ,\ent ,\ent)]]]}{[listaimg[i][\longitud{cab(listaimg)}*k\ $div$\ filas..\longitud{cab(listaimg)}*(k+1)\ $div$\ filas\ |\ k\selec[0..filas),\ i\selec[0..\longitud{listaimg})]\ |\ a\selec [i-k+1:i+k-1],\ b\selec[j-k+1:j+k-1],\ a\geq 0\ \wedge\ b\geq 0\ \wedge\ a < Alto(img)\ \wedge\ b < Ancho(img)]}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{cuenta(x:T,\ a:\TLista{T}) : \ent}{long([y\ |\ y\selec a,\ y == x])}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{mismos(a,b:\TLista{T}) : \bool}{(\longitud{a}==\longitud{b}\ \wedge\ (\forall c\selec a)\ cuenta(c,a) == cuenta(c,b))}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{hayRectangulo(img:[[(\ent ,\ent ,\ent)]],\ pxl: (\ent ,\ent ,\ent)) : \bool}{i\selec[0..Alto(img)),\ j\selec[0..Ancho(img)),\ 4DelMismoColor(vectorKVecinos(img,2,i,j),\ pxl)}
-\end{itemize}
-
-\begin{itemize}
-	\item \auxil{4DelMismoColor(kv:[(\ent ,\ent ,\ent)],\ pxl: (\ent ,\ent ,\ent)) : \bool}{(\forall f\selec kv)}
-\end{itemize}
-        
+%
+%\begin{itemize}
+%	\item \auxil{Alto(img:[[(\ent ,\ent ,\ent)]] : \ent}{ \longitud{img}}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{Ancho(img:[[(\ent ,\ent ,\ent)]]) : \ent}{if\ \longitud{img} == 0\  then\ 0\ else \longitud{cab(img)}}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{esIndiceValido(y,x: \ent , img:[[(\ent ,\ent ,\ent)]] : \bool}{0 \leqslant y < Alto(img) \wedge 0 \leqslant x < Ancho(img)}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{esRectangular(img:[[(\ent ,\ent ,\ent)]] : \bool}{(\forall a\selec img) \longitud{a} == \longitud{cab(img)}}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{KIndices(y,x,k: \ent : [(\ent ,\ent)] }{[(i,j)\ |\ i\selec(y-k:y+k), i\selec(y-k:y+k)]}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{KVecinos(img:[[(\ent ,\ent ,\ent)]], y,x,k: \ent : [(\ent ,\ent ,\ent)]}{[Pixel(img, \prm{c}, \sgd{c})\ |\ c\selec KIndices(y,x,k),\  esIndiceValido(c)]}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{Pixel(img:[[(\ent ,\ent ,\ent)]], y,x:\ent) : (\ent ,\ent ,\ent)}{if\ esIndiceValido(y, x, img)\ then\ img[y][x]\ else (0, 0, 0)}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{EsNegro(r:[[(\ent ,\ent ,\ent)]], y,x:\ent) : \bool}{\prm{Pixel(r,y,x} == 0 \wedge \sgd{Pixel(r,y,x} == 0 \wedge \trc{Pixel(r,y,x} == 0}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{EsPromedio(r,img:[[(\ent ,\ent ,\ent)]], y,x,k:\ent) : \bool}{\prm{Pixel(r,y,x)} == (\sum{\prm{p}\ |\ p\selec KVecinos(img,y,x,k) \longitud{KVecinos(img,y,x,k)}} \wedge \sgd{Pixel(r,y,x)} == (\sum{\sgd{p}\ |\ p\selec KVecinos(img,y,x,k) \longitud{KVecinos(img,y,x,k)}} \wedge \trc{Pixel(r,y,x)} == (\sum{\trc{p}\ |\ p\selec KVecinos(img,y,x,k) \longitud{KVecinos(img,y,x,k)}}}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{EsKCompleto(kv:[(\ent ,\ent ,\ent)],\ k:\ent) : \bool}{\longitud{kv} == (k+k-1)^2}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{VektorKVecinos(img:[[(\ent ,\ent ,\ent)]],\ i,j,k: \ent) : [(\ent ,\ent ,\ent)]}{[img[a][b]\ |\ a\selec [i-k+1:i+k-1],\ b\selec[j-k+1:j+k-1],\ a\geq 0\ \wedge\ b\geq 0\ \wedge\ a < Alto(img)\ \wedge\ b < Ancho(img)]}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{MedianaONegro(img:[[(\ent ,\ent ,\ent)]],\ i,j,k: \ent) : (\ent ,\ent ,\ent)}{if\ esKCompleto(vectorKvecinos(img,k,i,j))\ then\ mediana(vectorKvecinos(img,k,i,j))\ else (0,0,0)}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{mediana(vector:[(\ent ,\ent ,\ent)]) : (\ent ,\ent ,\ent)}{(valorMediana([\prm{a}\ |\ a\selec vector],\ valorMediana([\sgd{a}\ |\ a\selec vector],\ valorMediana([\trc{a}\ |\ a\selec vector])}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{valorMediana(xs:[\ent]) : \ent}{enOrden(xs)[\longitud{xs}\ $div$\ 2]}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{enOrden(xs:[\ent]) : [\ent]}{[x\ |\ i\selec [0:\longitud{xs}),\ x\selec xs,\ cuentaMenores(xs,x) == i]}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{cuentaMenores(xs:[\ent],\ x:\ent) : \ent}{\longitud{[1\ |\ y\ xs,\ y < x]}}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{SepararVertical(img:[[(\ent ,\ent ,\ent)]],\ columnas: \ent) : [[[(\ent ,\ent ,\ent)]]]}{[verticalizarImagen(img,columnas)[i*Alto(img)..(i+1)*Alto(img))\ |\ i\selec[0..columnas)]}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{verticalizarImagen(img:[[(\ent ,\ent ,\ent)]],\ columnas: \ent) : [[(\ent ,\ent ,\ent)]]}{[img[i][Ancho(img)*k\ $div$\ columnas..Ancho(img)*(k+1\ $div$\ columnas)]\ |\ k\selec [0..columnas),\ i\selec[0..Alto(img))]}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{SepararHorizontal(listaimg:[[[(\ent ,\ent ,\ent)]]],\ filas: \ent) : [[[(\ent ,\ent ,\ent)]]]}{[listaimg[i][\longitud{cab(listaimg)}*k\ $div$\ filas..\longitud{cab(listaimg)}*(k+1)\ $div$\ filas\ |\ k\selec[0..filas),\ i\selec[0..\longitud{listaimg})]\ |\ a\selec [i-k+1:i+k-1],\ b\selec[j-k+1:j+k-1],\ a\geq 0\ \wedge\ b\geq 0\ \wedge\ a < Alto(img)\ \wedge\ b < Ancho(img)]}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{cuenta(x:T,\ a:\TLista{T}) : \ent}{long([y\ |\ y\selec a,\ y == x])}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{mismos(a,b:\TLista{T}) : \bool}{(\longitud{a}==\longitud{b}\ \wedge\ (\forall c\selec a)\ cuenta(c,a) == cuenta(c,b))}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{hayRectangulo(img:[[(\ent ,\ent ,\ent)]],\ pxl: (\ent ,\ent ,\ent)) : \bool}{i\selec[0..Alto(img)),\ j\selec[0..Ancho(img)),\ 4DelMismoColor(vectorKVecinos(img,2,i,j),\ pxl)}
+%\end{itemize}
+%
+%\begin{itemize}
+%	\item \auxil{4DelMismoColor(kv:[(\ent ,\ent ,\ent)],\ pxl: (\ent ,\ent ,\ent)) : \bool}{(\forall f\selec kv)}
+%\end{itemize}
+%        
 %\begin{itemize}
 %	\item \auxil{inversa(a:\TLista{T}) : \TLista{T}}{[a_{|a|-i-1}\ |\ i \selec [0 \twodots \longitud{a})]}
 %\end{itemize}
