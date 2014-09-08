@@ -78,6 +78,19 @@
 
 \begin{ejercicio}
 	% EJEMPLO
+	Acuarela:
+
+	\begin{problema}{acuarela}{imagen:[[(\ent,\ent,\ent)]], k:\ent}{res:[[(\ent,\ent,\ent)]]}
+		\requiere[kEsPositivo]{k > 0}
+		\requiere[entradaEsRectangular]{EsRectangular(imagen)}
+		\asegura[dimensionesDeSalidaIguales]{Alto(res) == Alto(imagen)\ \wedge\ Ancho(res) == Ancho(imagen)}
+		\asegura[efecto]{(\forall i \selec [0:\longitud{Alto(res)})) (\forall j \selec [0:\longitud{Ancho(res)}))\ res[i][j] == MedianaONegro(i,j,img,k)}
+	\end{problema}
+	
+\end{ejercicio}
+
+\begin{ejercicio}
+	% EJEMPLO
 	Dividir:
 
 	\begin{problema}{dividir}{imagen:[[(\ent,\ent,\ent)]], m,n:\ent}{res:[[(\ent,\ent,\ent)]]}
@@ -91,16 +104,23 @@
 
 \end{ejercicio}
 
-%\begin{ejercicio}
+\begin{ejercicio}
 	% EJEMPLO
-%	Blur:
+	Pegar:
 
-%	\begin{problema}{cociente}{a,b:\ent}{res:\ent}
-%		\requiere{b \neq 0}
-%		\asegura{res == a$ $div$ $b}
-%	\end{problema}
+	\begin{problema}{pegar}{imagen,imagen2:[[(\ent,\ent,\ent)]],\ pixel:(\ent ,\ent ,\ent}{}
+		\modifica{imagen}
+		\requiere[hayRectanguloColorPixelEnImagen]{hayRectangulo(pre(imagen),pixel)}
+		\requiere[entradaEsRectangular]{EsRectangular(pre(imagen))}
+		\requiere[entrada2EsRectangular]{EsRectangular(imagen2)}
+		\requiere[pixelesFormanRectangulo]{EsRectangular(rectaPixel(pre(imagen),pixel))}
+		\requiere[entradaTieneSuperficie]{Alto(pre(imagen)) > 0\ \wedge\  Ancho(pre(imagen) > 0}
+		\requiere[entrada2TieneSuperficie]{Alto(imagen2) > 0\ \wedge\  Ancho(imagen2 > 0}
+		\asegura[imagen2ContenidaEnRect]{if\ Ancho(imagen2) \leq Ancho(rectaPixel(pre(imagen), pixel))\ \wedge\ Alto(imagen2) \leq Alto(rectaPixel(pre(imagen), pixel))\ then\ imagen == pegoImagenes(pre(imagen),\ pegoImagenes(rectaPixel(pre(imagen), pixel),\ imagen2,\ 0,\ 0),\ ,\ )\ else\ pre(imagen) == imagen}
+		\asegura[imagenTieneMismoTamaño]{Alto(pre(imagen)) == Alto(imagen) \wedge Ancho(pre(imagen)) == Ancho(imagen)}
+	\end{problema}
 
-%\end{ejercicio}
+\end{ejercicio}
 
 %\begin{ejercicio}
 %	% EJEMPLO
@@ -205,6 +225,14 @@
 
 \begin{itemize}
 	\item \auxil{mismos(a,b:\TLista{T}) : \bool}{(\longitud{a}==\longitud{b}\ \wedge\ (\forall c\selec a)\ cuenta(c,a) == cuenta(c,b))}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{hayRectangulo(img:[[(\ent ,\ent ,\ent)]],\ pxl: (\ent ,\ent ,\ent)) : \bool}{i\selec[0..Alto(img)),\ j\selec[0..Ancho(img)),\ 4DelMismoColor(vectorKVecinos(img,2,i,j),\ pxl)}
+\end{itemize}
+
+\begin{itemize}
+	\item \auxil{4DelMismoColor(kv:[(\ent ,\ent ,\ent)],\ pxl: (\ent ,\ent ,\ent)) : \bool}{(\forall f\selec kv)}
 \end{itemize}
         
 %\begin{itemize}

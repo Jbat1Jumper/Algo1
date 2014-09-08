@@ -14,7 +14,7 @@ problema pegar(imagen:[[(Int, Int, Int)]],imagen2:[[(Int, Int, Int)]], pixel:(In
 	requiere TodosLosPixelsSonValidos:  (∀ f<-pre(imagen)) (∀ px<-f) (0<=prm(px)<256 && 0<=sgd(px)<256 && 0<=trc(px)<256);
 	requiere TodosLosPixelsSonValidos2:  (∀ f<-imagen2) (∀ px<-f) (0<=prm(px)<256 && 0<=sgd(px)<256 && 0<=trc(px)<256);
 
-	asegura imagen2ContenidaEnRect: if Ancho(imagen2) <= Ancho(rectaPixel) && Alto(imagen2) <= Alto(rectaPixel) then imagen == pegoImagenes(pre(imagen), pegoImagenes(rectaPixel, imagen2, 0, 0),    primera coordenada horizontal del rect    ,    primera coordenada vertical del rect    ) else pre(imagen) == imagen
+	asegura imagen2ContenidaEnRect: if Ancho(imagen2) <= Ancho(rectaPixel(pre(imagen), pixel)) && Alto(imagen2) <= Alto(rectaPixel(pre(imagen), pixel)) then imagen == pegoImagenes(pre(imagen), pegoImagenes(rectaPixel, imagen2, 0, 0),    primera coordenada horizontal del rect    ,    primera coordenada vertical del rect    ) else pre(imagen) == imagen
 
 	asegura imagenTieneMismoTamaño: Alto(pre(imagen)) == Alto(imagen) && Ancho(pre(imagen)) == Ancho(imagen);
 
