@@ -1,0 +1,60 @@
+problema agregarImagen (g: Galeria, i: Imagen) {
+	modifica g;
+
+	asegura: |imagenes(pre(g))| + 1 == |imagenes(g)|;
+	asegura: mismos(imagenes(pre(g))++i,imagenes(g));
+	
+
+}
+
+
+problema votar(g: Galeria, i: Imagen) {
+	modifica g;
+	//requiere: i en pre(g); esto esta requerido desde la especificación de tipo nose si ponerlo
+	requiere |imagenes(g)| > 0;
+
+	asegura: mismos(imagenes(pre(g)),imagenes(g));
+	asegura: votos(g,i) == votos(pre(g),i) + 1;
+	asegura: paratodo(j<-imagenes(g), j /= i) votos(g,j) == votos(pre(g), j);
+	
+}
+
+
+problema top10 (g: Galeria) = result : [Imagen] {
+	requiere : |imagenes(g)| >= 10;  # funciona sin esto pero devolveria menos de 10 imagenes
+	asegura : result == primeros(10, invertir(imagenesEnOrden(g)));
+}
+aux invertir(l:[T]) : [T] = [l[|l|-i] | i<-(0..|l|] ]
+aux primeros(n: Int, l: [T]) : [T] = if |l| <= n then l else [ l[i] | i <- [0..10)];
+aux imagenesEnOrden(g: Galeria) : [Imagen] = [ i | v <- [0..maxVoto(g)], i <- imagenes(g),  votos(g,i) == v];
+aux maxVoto(g: Galeria) : Int = if |imagenes(g)| == 0 then 0 else cab([ votos(g, i) | i <- imagenes(g), ∀(i2 <- imagenes(g)) votos(g,i) >= votos(g,i2) ]);
+
+
+problema eliminarMasVotada(g:Galeria) {
+
+	requiere |imagenes(g)|>0;	
+	modifica g;
+
+	asegura |imagenes(g)| == |imagenes(pre(g))|-1;
+	asegura lasNuevasEstaban :
+	(∀x <- imagenes(g)) x ∈ imagenes(pre(g)) ^ votos(g, x) == votos(pre(g), x) ;
+	
+	asegura peroFaltaUnaDeLasMasVotadas: 
+	¬mismos(masVotados(pre(g)),masVotados(g));
+	
+	aux masVotado(g:Galeria,img:Imagen) : Bool =
+	(∀ imaggal<-imagenes(g)) votos(g,imaggal)<=votos(g,img);
+	
+	aux masVotados(g:Galeria) : [Imagen] =
+	[img | img<-imagenes(g), masVotado(g,img)];
+	}
+
+
+problema posisionesMasOscuras (i: Imagen) = result : [(Int, Int)] {
+	asegura pertenecenALaImagen : paratodo(pos <- result) 0 <= prm(pos) < ancho(i) && 0 <= sgd(pos) < alto(i);
+	asegura tienenMinimaLuminosidad : paratodo(pos <- result) lum(color(i, prm(pos), sgd(pos))) == minLum(i);
+}
+aux colores(i: Imagen) : [Pixel] = [ color(i, x, y) | x <- [0..ancho(i)), y <- [0..alto(i))];
+aux lum(p: Pixel) : Int = red(p) + blue(p) + green(p);
+aux minLumPixels(i: Imagen) : [Pixel] = [ c | c <- colores(i), paratodo(c2 <- colores(i)) lum(c) <= lum(c2)];
+aux minLum(i: Imagen) : Int = lum(cab(minLumPixels(i)));
