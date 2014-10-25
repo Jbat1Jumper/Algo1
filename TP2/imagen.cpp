@@ -25,3 +25,18 @@ Pixel Imagen::obtenerPixel(int fila, int columna) const
 {
     return (pixels.at(fila)).at(columna);
 }
+
+void Imagen::modificarPixel(int fila, int columna, const Pixel &pixel)
+{
+    (pixels.at(fila)).at(columna) = pixel;
+}
+
+int Imagen::alto() const
+{
+    return pixels.size();
+}
+
+int Imagen::ancho() const
+{
+    return pixels.at(0).size();
+}
