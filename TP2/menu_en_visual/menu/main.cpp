@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <iostream>
-#include <fstream> 
+#include <fstream>
 #include "imagen.h"
 
 using namespace std;
@@ -26,7 +26,7 @@ int MostrarMenuPrincipal() {
 	return opcion;
 }
 
-void opcion_debug() { 
+void opcion_debug() {
 	Imagen img(1, 1);
 	cout << "Abriendo img.txt para hacer unas pruebas \n";
 	std::ifstream ifs("img.txt");
@@ -38,12 +38,23 @@ void opcion_debug() {
 	cout << "Mostrando imagen: \n";
 	img.guardar(cout);
 	cout << endl;
-	cout << "Modificando pixel 0,0 \n";
-	img.modificarPixel(0, 0, Pixel(255, 255, 255));
+	cout << "Modificando pixel 0,1 \n";
+	img.modificarPixel(0,1, Pixel(255, 255, 255));
 	cout << "Guardando copia modificada en img2.txt \n";
 	std::ofstream ofs("img2.txt");
 	img.guardar(ofs);
+	ifs.close();
+	ofs.close();
 	cout << "Listo \n";
+	std::ifstream ifs2("img2.txt");
+	if(!ifs2.is_open()){
+		cout << "no se pudo abrir" << endl;
+		return;
+	}
+	img.cargar(ifs2);
+	cout << "Mostrando imagen 2: \n";
+	img.guardar(cout);
+	cout << endl;
 }
 
 int main() {
@@ -58,6 +69,6 @@ int main() {
 			opcion_debug();
 	}
 	cout << "\nsaliendo\n";
-	
+
 	return 0;
 }
