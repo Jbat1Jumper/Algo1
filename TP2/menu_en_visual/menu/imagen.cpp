@@ -2,7 +2,7 @@
 #include <sstream>
 
 Imagen::Imagen(int alto_param,int ancho_param)
-{	
+{
 	int i=0;
     int j=0;
     Pixel pixelNegro = Pixel(0,0,0);
@@ -65,7 +65,7 @@ void Imagen::guardar(std::ostream& os) const {
 		for(int x = 0; x < ancho(); x++){
 			if(x + y != 0)
 				os << ",";
-			guardar_pixel(os, obtenerPixel(x, y));
+			guardar_pixel(os, obtenerPixel(y, x));
 		}
 	os << "]";
 }
@@ -93,14 +93,14 @@ void Imagen::cargar (std::istream& is) {
 
 	int ancho, alto;
 	char acasedeberiaverificar;
-	ss >> ancho;
 	ss >> alto;
+	ss >> ancho;
 	resize(alto, ancho);
-	
+
 	for(int y = 0; y < this->alto(); y++)
 		for(int x = 0; x < this->ancho(); x++){
 			ss >> acasedeberiaverificar;
-			modificarPixel(x, y, cargar_pixel(ss));
+			modificarPixel(y,x, cargar_pixel(ss));
 		}
 	is >> acasedeberiaverificar;
 }
