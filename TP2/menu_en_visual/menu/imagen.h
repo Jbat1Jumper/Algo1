@@ -29,6 +29,8 @@ class Imagen {
  private:
   Pixel2DContainer pixels;
   void resize(int alto, int ancho);
+  int maximaOscuridad() const;
+  int luminosidad(Pixel p) const;
 };
 
 #endif  // IMAGEN_H
