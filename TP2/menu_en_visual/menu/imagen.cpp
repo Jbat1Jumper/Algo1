@@ -118,6 +118,29 @@ Pixel cargar_pixel(std::stringstream& ss) {
 	return t;
 }
 
+bool Imagen::operator==(const Imagen &otra) const
+{
+    int j =0;
+    int k =0;
+    bool res = true;
+    while(j<otra.pixels.size())
+    {
+    k=0;
+    while(k<otra.pixels.at(0).size())
+    {
+        if(!(otra.obtenerPixel(j,k)==obtenerPixel(j,k)))
+            {
+                res=false;
+                return res;
+            }
+    k++;
+    }
+    j++;
+    }
+    return res;
+}
+
+
 void Imagen::cargar (std::istream& is) {
 	std::string line;
 	std::getline(is, line);
