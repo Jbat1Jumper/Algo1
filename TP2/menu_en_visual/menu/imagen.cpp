@@ -22,6 +22,38 @@ Imagen::Imagen(int alto_param,int ancho_param)
     pixels = img;
 }
 
+vector<pair<int, int> > Imagen::posicionesMasOscuras() const
+{
+    vector<pair<int, int> > posiciones;
+    for(int y = 0; y < alto(); y++) {
+		for(int x = 0; x < ancho(); x++)
+			{
+                if(luminosidad(pixels.at(y).at(x))==maximaOscuridad())
+                    posiciones.push_back(pair<int,int>(y,x));
+			}
+	}
+	return posiciones;
+}
+
+int Imagen::maximaOscuridad() const
+{
+    int oscuridad = 1000;
+    for(int y = 0; y < alto(); y++) {
+		for(int x = 0; x < ancho(); x++)
+		{
+            if(oscuridad>luminosidad(pixels.at(y).at(x)))
+			oscuridad=luminosidad(pixels.at(y).at(x));
+        }
+	}
+	return oscuridad;
+}
+
+int Imagen::luminosidad(Pixel miPixel) const
+{
+    return miPixel.blue() + miPixel.green() + miPixel.red();
+}
+
+
 void Imagen::resize(int alto, int ancho){
 	pixels.clear();
     Pixel pixelNegro = Pixel(0,0,0);
