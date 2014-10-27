@@ -38,8 +38,14 @@ void opcion_debug() {
 	cout << "Mostrando imagen: \n";
 	img.guardar(cout);
 	cout << endl;
+	cout << endl <<"Posiciones mas oscuras" << endl;
+    vector<pair<int, int> > posiciones2 = img.posicionesMasOscuras();
+	for(int i=0; i<posiciones2.size();i++)
+	{
+        cout << "(" << posiciones2.at(i).first << "," << posiciones2.at(i).second << ")";
+	}
 	cout << "Modificando pixel 0,1 \n";
-	img.modificarPixel(0,1, Pixel(255, 255, 255));
+	img.modificarPixel(2,0, Pixel(255, 255, 255));
 	cout << "Guardando copia modificada en img2.txt \n";
 	std::ofstream ofs("img2.txt");
 	img.guardar(ofs);
@@ -54,6 +60,33 @@ void opcion_debug() {
 	img.cargar(ifs2);
 	cout << "Mostrando imagen 2: \n";
 	img.guardar(cout);
+	cout << endl <<"Posiciones mas oscuras" << endl;
+	vector<pair<int, int> > posiciones = img.posicionesMasOscuras();
+	for(int i=0; i<posiciones.size();i++)
+	{
+        cout << "(" << posiciones.at(i).first << "," << posiciones.at(i).second << ")";
+	}
+}
+
+void posicionesMasOscuras()
+{
+    cout << "Ingrese nombre de archivo \n";
+    string nombre;
+    cin >> nombre;
+    Imagen img(1,1);
+    std::ifstream ifs(nombre.c_str());
+	if(!ifs.is_open()){
+		cout << "no se pudo abrir" << endl;
+		return;
+	}
+	img.cargar(ifs);
+	cout << endl <<"Posiciones mas oscuras" << endl;
+    vector<pair<int, int> > posiciones = img.posicionesMasOscuras();
+	for(int i=0; i<posiciones.size();i++)
+	{
+        cout << "(" << posiciones.at(i).first << "," << posiciones.at(i).second << ")";
+	}
+	ifs.close();
 	cout << endl;
 }
 
@@ -63,10 +96,16 @@ int main() {
 
 	while(opcion_menu != opcion_salir){
 		opcion_menu = MostrarMenuPrincipal();
-		cout << "\n Su opcion fue la " << opcion_menu << "\n";
-
-		if(opcion_menu == 42)
-			opcion_debug();
+		cout << endl;
+		switch(opcion_menu)
+		{
+			case 42:
+                opcion_debug();
+			break;
+			case 5:
+                posicionesMasOscuras();
+			break;
+        }
 	}
 	cout << "\nsaliendo\n";
 
