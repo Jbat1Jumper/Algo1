@@ -1,5 +1,9 @@
 #include "imagen.h"
 #include <sstream>
+int cantpixels=0;
+int sumagreen=0;
+int sumared=0;
+int sumablue=0;
 
 Imagen::Imagen(int alto_param,int ancho_param)
 {
@@ -21,6 +25,49 @@ Imagen::Imagen(int alto_param,int ancho_param)
     }
     pixels = img;
 }
+
+void Imagen::blur(int k)
+{
+	Imagen aux = *this;
+    for(int y = 0; y < alto(); y++) {
+		for(int x = 0; x < ancho(); x++)
+		{
+			modificarPixel(y,x,blurearPixel(y,x,k,aux));
+		}
+	}
+}
+
+Pixel Imagen::blurearPixel(int y,int x,int k,Imagen aux)
+{
+	int i= y+k-pixels.size();
+	int j = x+k-pixels.at(0).size();
+    if(i>0 || y-k<-1 || j>0 || x-k<-1)
+    {
+        return Pixel(0,0,0);
+    }
+    else
+    {
+		return pixelPromedio(y,x,k,aux);
+    }
+}
+Pixel Imagen::pixelPromedio(int y,int x,int k, Imagen aux)
+{
+    cantpixels=0;
+    sumagreen=0;
+    sumared=0;
+    sumablue=0;
+    for(int i=y-k+1;i<=y+k-1;i++)
+        for(int j=x-k+1;j<=x+k-1;j++)
+        {
+            sumablue+= aux.obtenerPixel(i,j).blue();
+            sumagreen+=aux.obtenerPixel(i,j).green();
+            sumared+=aux.obtenerPixel(i,j).red();
+            cantpixels++;
+        }
+    Pixel res = Pixel(sumared/cantpixels,sumagreen/cantpixels,sumablue/cantpixels);
+    return res;
+}
+
 
 vector<pair<int, int> > Imagen::posicionesMasOscuras() const
 {

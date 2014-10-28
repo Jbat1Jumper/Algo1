@@ -38,6 +38,12 @@ void opcion_debug() {
 	cout << "Mostrando imagen: \n";
 	img.guardar(cout);
 	cout << endl;
+	Imagen img2(1, 1);
+	cout << "Abriendo img.txt para hacer unas pruebas \n";
+	std::ifstream ifs3("img2.txt");
+	img2.cargar(ifs3);
+	bool res = img2==img;
+	cout << endl << "Comparar Imagenes: \n" << endl << res;
 	cout << endl <<"Posiciones mas oscuras" << endl;
     vector<pair<int, int> > posiciones2 = img.posicionesMasOscuras();
 	for(int i=0; i<posiciones2.size();i++)
@@ -66,6 +72,9 @@ void opcion_debug() {
 	{
         cout << "(" << posiciones.at(i).first << "," << posiciones.at(i).second << ")";
 	}
+
+
+
 }
 
 void posicionesMasOscuras()
@@ -90,6 +99,32 @@ void posicionesMasOscuras()
 	cout << endl;
 }
 
+void blur()
+{
+	cout << "Ingrese nombre de archivo \n";
+    string nombre;
+    cin >> nombre;
+    Imagen img(1,1);
+    std::ifstream ifs(nombre.c_str());
+	if(!ifs.is_open()){
+		cout << "no se pudo abrir" << endl;
+		return;
+	}
+	img.cargar(ifs);
+	cout << endl <<"Ingrese nombre de destino" << endl;
+    string archivonuevo;
+    cin >> archivonuevo;
+    cout << endl <<"Ingrese parametro de blureo" << endl;
+    int k;
+    cin >> k;
+    img.blur(k);
+    std::ofstream ofs(archivonuevo.c_str());
+	img.guardar(ofs);
+	ifs.close();
+	ofs.close();
+	cout << endl << "Imagen Guardada"<<endl;
+}
+
 int main() {
 	int opcion_menu = -1;
 	int opcion_salir = 12;
@@ -105,6 +140,9 @@ int main() {
 			case 5:
                 posicionesMasOscuras();
 			break;
+			case 1:
+                blur();
+            break;
         }
 	}
 	cout << "\nsaliendo\n";

@@ -31,6 +31,8 @@ class Imagen {
   void resize(int alto, int ancho);
   int maximaOscuridad() const;
   int luminosidad(Pixel p) const;
+  Pixel blurearPixel(int y,int x,int k,Imagen aux);
+  Pixel pixelPromedio(int y,int x, int k,Imagen aux);
 };
 
 #endif  // IMAGEN_H
