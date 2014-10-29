@@ -1,9 +1,6 @@
 #include "imagen.h"
 #include <sstream>
-int cantpixels=0;
-int sumagreen=0;
-int sumared=0;
-int sumablue=0;
+#include <algorithm>
 
 Imagen::Imagen(int alto_param,int ancho_param)
 {
@@ -26,36 +23,89 @@ Imagen::Imagen(int alto_param,int ancho_param)
     pixels = img;
 }
 
+void DrawProgressBar(int len, double percent) {
+  cout << "\x1B[2K"; // Erase the entire current line.
+  cout << "\x1B[0E"; // Move to the beginning of the current line.
+  string progress;
+  for (int i = 0; i < len; ++i) {
+    if (i < static_cast<int>(len * percent)) {
+      progress += "=";
+    } else {
+      progress += " ";
+    }
+  }
+  cout << "[" << progress << "] " << (static_cast<int>(100 * percent)) << "%";
+  flush(cout); // Required.
+}
+
+void Imagen::acuarela(int k)
+{
+    Imagen aux = *this;
+    for(int y = 0; y < alto(); y++) {
+		for(int x = 0; x < ancho(); x++)
+		{
+			modificarPixel(y,x,modificarPixel(y,x,k,aux,"acuarela"));
+		}
+
+		DrawProgressBar(30,y/(double)alto());
+	}
+	cout << "\x1B[2K"; // Erase the entire current line.
+}
+
 void Imagen::blur(int k)
 {
+
 	Imagen aux = *this;
     for(int y = 0; y < alto(); y++) {
 		for(int x = 0; x < ancho(); x++)
 		{
-			modificarPixel(y,x,blurearPixel(y,x,k,aux));
+			modificarPixel(y,x,modificarPixel(y,x,k,aux,"blur"));
 		}
+
+		DrawProgressBar(30,y/(double)alto());
 	}
+	cout << "\x1B[2K"; // Erase the entire current line.
 }
 
-Pixel Imagen::blurearPixel(int y,int x,int k,Imagen aux)
+
+
+Pixel Imagen::modificarPixel(int y,int x,int k,Imagen aux,string modo)
 {
 	int i= y+k-pixels.size();
 	int j = x+k-pixels.at(0).size();
     if(i>0 || y-k<-1 || j>0 || x-k<-1)
-    {
         return Pixel(0,0,0);
-    }
-    else
-    {
-		return pixelPromedio(y,x,k,aux);
-    }
+    else if (modo == "blur")
+        return pixelPromedio(y,x,k,aux);
+    else if (modo == "acuarela")
+        return pixelMediana(y,x,k,aux);
 }
+
+Pixel Imagen::pixelMediana(int y,int x,int k, Imagen aux)
+{
+    vector<int> red;
+    vector<int> green;
+    vector<int> blue;
+    for(int i=y-k+1;i<=y+k-1;i++)
+        for(int j=x-k+1;j<=x+k-1;j++)
+        {
+            blue.push_back(aux.obtenerPixel(i,j).blue());
+            green.push_back(aux.obtenerPixel(i,j).green());
+            red.push_back(aux.obtenerPixel(i,j).red());
+        }
+    std::sort (red.begin(),red.end());
+    std::sort (blue.begin(),blue.end());
+    std::sort (green.begin(),green.end());
+    Pixel res = Pixel(red.at(red.size()/2),green.at(green.size()/2),blue.at(blue.size()/2));
+    return res;
+}
+
 Pixel Imagen::pixelPromedio(int y,int x,int k, Imagen aux)
 {
-    cantpixels=0;
-    sumagreen=0;
-    sumared=0;
-    sumablue=0;
+    int cantpixels=0;
+    int sumagreen=0;
+    int sumared=0;
+    int sumablue=0;
     for(int i=y-k+1;i<=y+k-1;i++)
         for(int j=x-k+1;j<=x+k-1;j++)
         {
@@ -72,10 +122,11 @@ Pixel Imagen::pixelPromedio(int y,int x,int k, Imagen aux)
 vector<pair<int, int> > Imagen::posicionesMasOscuras() const
 {
     vector<pair<int, int> > posiciones;
+    int maxOscuridad = maximaOscuridad();
     for(int y = 0; y < alto(); y++) {
 		for(int x = 0; x < ancho(); x++)
 			{
-                if(luminosidad(pixels.at(y).at(x))==maximaOscuridad())
+                if(luminosidad(pixels.at(y).at(x))==maxOscuridad)
                     posiciones.push_back(pair<int,int>(y,x));
 			}
 	}
