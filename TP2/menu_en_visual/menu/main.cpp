@@ -73,8 +73,6 @@ void opcion_debug() {
         cout << "(" << posiciones.at(i).first << "," << posiciones.at(i).second << ")";
 	}
 
-
-
 }
 
 void posicionesMasOscuras()
@@ -89,19 +87,45 @@ void posicionesMasOscuras()
 		return;
 	}
 	img.cargar(ifs);
+	ifs.close();
 	cout << endl <<"Posiciones mas oscuras" << endl;
     vector<pair<int, int> > posiciones = img.posicionesMasOscuras();
 	for(int i=0; i<posiciones.size();i++)
 	{
         cout << "(" << posiciones.at(i).first << "," << posiciones.at(i).second << ")";
 	}
-	ifs.close();
 	cout << endl;
+}
+
+void acuarela()
+{
+ cout << "Ingrese nombre de archivo \n";
+    string nombre;
+    cin >> nombre;
+    Imagen img(1,1);
+    std::ifstream ifs(nombre.c_str());
+	if(!ifs.is_open()){
+		cout << "no se pudo abrir" << endl;
+		return;
+	}
+	img.cargar(ifs);
+	cout << endl <<"Ingrese nombre de destino" << endl;
+    string archivonuevo;
+    cin >> archivonuevo;
+    cout << endl <<"Ingrese parametro de acuarela" << endl;
+    int k;
+    cin >> k;
+    ifs.close();
+    img.acuarela(k);
+    std::ofstream ofs(archivonuevo.c_str());
+	img.guardar(ofs);
+    ofs.close();
+	cout << endl << "Imagen Guardada" <<endl;
 }
 
 void blur()
 {
-	cout << "Ingrese nombre de archivo \n";
+ cout << "Ingrese nombre de archivo \n";
     string nombre;
     cin >> nombre;
     Imagen img(1,1);
@@ -117,13 +141,14 @@ void blur()
     cout << endl <<"Ingrese parametro de blureo" << endl;
     int k;
     cin >> k;
+    ifs.close();
     img.blur(k);
     std::ofstream ofs(archivonuevo.c_str());
 	img.guardar(ofs);
-	ifs.close();
-	ofs.close();
-	cout << endl << "Imagen Guardada"<<endl;
+    ofs.close();
+	cout << endl << "Imagen Guardada" <<endl;
 }
+
 
 int main() {
 	int opcion_menu = -1;
@@ -142,6 +167,9 @@ int main() {
 			break;
 			case 1:
                 blur();
+            break;
+            case 2:
+                acuarela();
             break;
         }
 	}
