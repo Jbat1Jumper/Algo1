@@ -50,7 +50,7 @@ void opcion_debug() {
 	{
         cout << "(" << posiciones2.at(i).first << "," << posiciones2.at(i).second << ")";
 	}
-	cout << "Modificando pixel 0,1 \n";
+	cout << "Modificando pixel 2,0 \n";
 	img.modificarPixel(2,0, Pixel(255, 255, 255));
 	cout << "Guardando copia modificada en img2.txt \n";
 	std::ofstream ofs("img2.txt");

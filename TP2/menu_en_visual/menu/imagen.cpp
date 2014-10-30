@@ -183,9 +183,7 @@ int Imagen::ancho() const
     return pixels.at(0).size();
 }
 
-void guardar_pixel(std::ostream& os, const Pixel& p) {
-	os << "(" << p.red() << ";" << p.green() << ";" << p.blue() << ")";
-}
+
 
 void Imagen::guardar(std::ostream& os) const {
 	os << alto() << " ";
@@ -195,26 +193,12 @@ void Imagen::guardar(std::ostream& os) const {
 		for(int x = 0; x < ancho(); x++){
 			if(x + y != 0)
 				os << ",";
-			guardar_pixel(os, obtenerPixel(y, x));
+			Pixel miPixel = obtenerPixel(y,x);
+			miPixel.guardar(os);
 		}
 	os << "]";
 }
 
-Pixel cargar_pixel(std::stringstream& ss) {
-	int r, g, b;
-	char acatambiensedeberiaverificar;
-	{
-		ss >> acatambiensedeberiaverificar;
-		ss >> r;
-		ss >> acatambiensedeberiaverificar;
-		ss >> g;
-		ss >> acatambiensedeberiaverificar;
-		ss >> b;
-		ss >> acatambiensedeberiaverificar;
-	}
-	Pixel t(r, g, b);
-	return t;
-}
 
 bool Imagen::operator==(const Imagen &otra) const
 {
@@ -253,42 +237,10 @@ void Imagen::cargar (std::istream& is) {
 	for(int y = 0; y < this->alto(); y++)
 		for(int x = 0; x < this->ancho(); x++){
 			ss >> acasedeberiaverificar;
-			modificarPixel(y,x, cargar_pixel(ss));
+			Pixel miPixel;
+			miPixel.cargar(ss);
+			modificarPixel(y,x, miPixel);
 		}
 	is >> acasedeberiaverificar;
 }
 
-/*
-problema blur (this : Imagen; k : Z) f
-requiere k > 0 ;
-modifica this ;
-asegura mismasDimensiones : alto(this) == alto(pre(this)) ^ ancho(this) == ancho(pre(this)) ;
-asegura blurKVecinosIncompletos : (8x   [0::ancho(this)); y   [0::alto(this)))
-:KV ecinosCompletos(this; x; y; k) ) esNegro(color(this; x; y)) ;
-asegura blurKVecinosCompletos : (8x   [0::ancho(this)); y   [0::alto(this)))
-KV ecinosCompletos(this; x; y; k) ) esP romedio(color(this; x; y);Kvecinos(pre(this); x; y; k)) ;
-aux esPromedio (p: Pixel, kv: [Pixel]) : Bool = red(p) == promedio([red(x)jx   kv]) ^
-green(p) == promedio([green(x)jx   kv]) ^ blue(p) == promedio([blue(x)jx   kv]) ;
-
-*/
-
-void Imagen::blur(int k){
-
-}
-
-/*
-problema acuarela (this : Imagen; k : Z) f
-requiere k > 0 ;
-modifica this ;
-asegura mismasDimensiones : alto(this) == alto(pre(this)) ^ ancho(this) == ancho(pre(this)) ;
-asegura acuarelaKVecinosIncompletos : (8x   [0::ancho(this)); y   [0::alto(this)))
-:KV ecinosCompletos(this; x; y; k) ) esNegro(color(this; x; y)) ;
-asegura acuarelaKVecinosCompletos : (8x   [0::ancho(this)); y   [0::alto(this)))
-KV ecinosCompletos(this; x; y; k) ) esMediana(color(this; x; y);Kvecinos(pre(this); x; y; k)) ;
-aux esMediana (p: Pixel, kv: [Pixel]) : Bool = red(p) == mediana([red(x)jx   kv]) ^
-green(p) == mediana([green(x)jx   kv]) ^ blue(p) == mediana([blue(x)jx   kv]) ;
-  */
-
-void Imagen::acuarela(int k){
-
-}

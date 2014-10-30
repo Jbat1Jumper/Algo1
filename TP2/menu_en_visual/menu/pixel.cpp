@@ -51,3 +51,24 @@ bool Pixel::operator==(const Pixel &otro) const
     }
     return res;
 }
+
+void Pixel::guardar(std::ostream& os) const{
+	os << "(" << red() << ";" << green() << ";" << blue() << ")";
+}
+
+void Pixel::cargar(std::istream& ss) {
+	int r, g, b;
+	char acatambiensedeberiaverificar;
+	{
+		ss >> acatambiensedeberiaverificar;
+		ss >> r;
+		ss >> acatambiensedeberiaverificar;
+		ss >> g;
+		ss >> acatambiensedeberiaverificar;
+		ss >> b;
+		ss >> acatambiensedeberiaverificar;
+	}
+	intensidades[0]= r;
+	intensidades[1]= g;
+	intensidades[2]= b;
+}
