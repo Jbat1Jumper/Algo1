@@ -10,7 +10,7 @@ GaleriaImagenes miGaleria;
 
 int MostrarMenuPrincipal() {
 	int opcion;
-	cout << "\nSeleccione alguna opcion para continuar\n";
+	cout << "Galerazo\nSeleccione alguna opcion para continuar\n";
 	cout << "1 - blur\n";
 	cout << "2 - acuarela\n";
 	cout << "3 - cargar galeria\n";
@@ -23,63 +23,9 @@ int MostrarMenuPrincipal() {
 	cout << "10 - eliminar mas votada\n";
 	cout << "11 - guardar galeria\n";
 	cout << "12 - salir\n";
-	cout << "\n42 - debug\n";
 	cout << ">>> ";
 	cin >> opcion;
 	return opcion;
-}
-
-void opcion_debug() {
-	Imagen img(1, 1);
-	cout << "Abriendo img.txt para hacer unas pruebas \n";
-	std::ifstream ifs("img.txt");
-	if(!ifs.is_open()){
-		cout << "no se pudo abrir" << endl;
-		return;
-	}
-	img.cargar(ifs);
-	cout << "Mostrando imagen: \n";
-	img.guardar(cout);
-	cout << endl;
-	Imagen img2(1, 1);
-	cout << "Abriendo img.txt para hacer unas pruebas \n";
-	std::ifstream ifs3("img2.txt");
-	img2.cargar(ifs3);
-	bool res = img2==img;
-	cout << endl << "Comparar Imagenes: \n" << endl << res;
-	cout << endl <<"Posiciones mas oscuras" << endl;
-    vector<pair<int, int> > posiciones2 = img.posicionesMasOscuras();
-	for(int i=0; i<posiciones2.size();i++)
-	{
-        cout << "(" << posiciones2.at(i).first << "," << posiciones2.at(i).second << ")";
-	}
-	cout << "Modificando pixel 2,0 \n";
-	img.modificarPixel(2,0, Pixel(255, 255, 255));
-	cout << "Guardando copia modificada en img2.txt \n";
-	std::ofstream ofs("img2.txt");
-	img.guardar(ofs);
-	ifs.close();
-	ofs.close();
-	cout << "Listo \n";
-	std::ifstream ifs2("img2.txt");
-	if(!ifs2.is_open()){
-		cout << "no se pudo abrir" << endl;
-		return;
-	}
-	img.cargar(ifs2);
-	cout << "Mostrando imagen 2: \n";
-	img.guardar(cout);
-	cout << endl <<"Posiciones mas oscuras" << endl;
-	vector<pair<int, int> > posiciones = img.posicionesMasOscuras();
-	for(int i=0; i<posiciones.size();i++)
-	{
-        cout << "(" << posiciones.at(i).first << "," << posiciones.at(i).second << ")";
-	}
-	std::ifstream ifs4("galeria.txt");
-	cout << endl << "Cargando galeria" << endl;
-	GaleriaImagenes galeria;
-	galeria.cargar(ifs4);
-
 }
 
 void posicionesMasOscuras()
@@ -185,7 +131,7 @@ void guardarGaleria()
 	std::ofstream ofs(archivonuevo.c_str());
 	miGaleria.guardar(ofs);
 	ofs.close();
-	cout << "Galería guardada" << endl; 
+	cout << "Galeria guardada" << endl; 
 }
 
 void top10()
@@ -265,6 +211,50 @@ void votar()
 	miGaleria.votar(miImagen);
 }
 
+void dividiryagregar()
+{
+	cout << "Ingrese nombre de archivo de galeria \n";
+    string nombre;
+    cin >> nombre;
+	std::ifstream ifs(nombre.c_str());
+	if(!ifs.is_open()){
+		cout << "no se pudo abrir" << endl;
+		return;
+	}
+	miGaleria.cargar(ifs);
+	ifs.close();
+	cout << "Galeria cargada" << endl;
+	cout << "Ingrese nombre de archivo de imagen a cortar \n";
+    string nombre2;
+    cin >> nombre2;
+	std::ifstream ifs2(nombre2.c_str());
+	if(!ifs2.is_open()){
+		cout << "no se pudo abrir" << endl;
+		return;
+	}
+	Imagen miImagen(1,1);
+	miImagen.cargar(ifs2);
+	ifs2.close();
+	cout << "Imagen Cargada" << endl;
+	cout << "Ingrese divisor de columnas" <<endl;
+	int n;
+	cin >> n;
+	if(miImagen.ancho() % n !=0)
+	{
+		cout << "La imagen no es divisible por las columnas ingresadas" <<endl;
+		return;
+	}
+	cout << "Ingrese divisor de filas" <<endl;
+	int m;
+	cin >> m;
+	if(miImagen.alto() % m !=0)
+	{
+		cout << "La imagen no es divisible por las filas ingresadas" <<endl;
+		return;
+	}
+	miGaleria.dividirYAgregar(miImagen,n,m);
+}
+
 int main() {
 	int opcion_menu = -1;
 	int opcion_salir = 12;
@@ -274,22 +264,22 @@ int main() {
 		cout << endl;
 		switch(opcion_menu)
 		{
-			case 42:
-                opcion_debug();
-			break;
-			case 5:
-                posicionesMasOscuras();
-			break;
 			case 1:
                 blur();
             break;
-            case 2:
+			case 2:
                 acuarela();
             break;
 			case 3:
 				cargargaleria();
 			break;
-			case 6:
+			case 4:
+				dividiryagregar();
+			break;
+			case 5:
+                posicionesMasOscuras();
+			break;
+            case 6:
 				top10();
 			break;
 			case 7:
@@ -297,10 +287,10 @@ int main() {
 			break;
 			case 8:
 				agregarImagen();
-				break;
+			break;
 			case 9:
 				votar();
-				break;
+			break;
 			case 10:
 				eliminarMasVotada();
 			break;

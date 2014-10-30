@@ -8,9 +8,42 @@
 #include <sstream>
 #include <algorithm>
 
-void GaleriaImagenes::dividirYAgregar(const Imagen &imagen, int n, int m){
+vector<Imagen> dividir(int n,int m,Imagen img){
+	vector<Imagen> division;	
+	Imagen miniImg(img.alto() / m, img.ancho() / n);
+	
+	for (int j=0; j<n ;j++){
+	for (int i = 0; i < m ; i++){
+		for(int x = 0; x < miniImg.alto(); x++){
+			for (int y = 0; y < miniImg.ancho(); y++){
+				miniImg.modificarPixel(x,y,img.obtenerPixel(x + (i * (img.alto()/m)), y + (j * (img.ancho()/n)) ));
+			}
+		}
+		division.push_back(miniImg);
+	}
+	}
 
+	return division;
 }
+
+void GaleriaImagenes::dividirYAgregar(const Imagen &imagen, int n, int m){
+	vector<Imagen> divisiones = dividir(n, m, imagen);
+	for (int i = 0; i < n * m; i++){
+		if(std::find(imagenes.begin(), imagenes.end(), divisiones[i])!=imagenes.end())
+		{
+		cout << "Ya existe una imagen identica a la division" << endl;
+		for(int j =0;j<i;j++){
+			imagenes.pop_back();
+			votos.pop_back();}
+		return;
+		}
+		imagenes.push_back(divisiones[i]);
+		votos.push_back(0);
+	}
+	cout << "Imagenes cortadas y agregadas" <<endl;
+	Ordenar();
+}
+
 Imagen GaleriaImagenes::laMasChiquitaConPuntoBlanco() const{
     int tam = imagenes.size();
     int i = 0;
