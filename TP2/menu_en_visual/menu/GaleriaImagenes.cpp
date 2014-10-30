@@ -58,8 +58,23 @@ bool tienePixelBlanco(Imagen &imagen){
 }
 
 void GaleriaImagenes::agregarImagen(const Imagen& imagen){
-    imagenes.push_back(imagen);
-    votos.push_back(0);
+    int i = 1;
+    Imagen aux1 = imagenes[0];
+    int votos1 = votos[0];
+    Imagen aux2 = imagenes[0];
+    int votos2 = votos[0];
+    imagenes.push_back(imagenes[imagenes.size()-1]);
+    votos.push_back(votos[.size()-1]);
+    while (i<(imagenes.size()-1){
+           aux2 = imagenes[i];
+           votos2 = votos[i];
+           imagenes[i]= aux1;
+           votos[i]=votos1;
+           aux1 = aux2;
+           votos1=votos2;
+    }
+    imagenes[0] = imagen;
+    votos[0]=0;
 }
 
 void GaleriaImagenes::votar(const Imagen& imagen){
@@ -75,11 +90,6 @@ void GaleriaImagenes::votar(const Imagen& imagen){
 
 
 void GaleriaImagenes::eliminarMasVotada(){
-    int i = 0;
-    while (i<(imagenes.size()-1){
-        imagenes[i] = imagenes[i+1];
-        votos[i] = votos[i+1];
-    }
     imagenes.pop_back();
     votos.pop_back();
 }
@@ -90,7 +100,7 @@ vector <Imagen> top10() const{
     vector<Imagen> result; //vector va a ser un vector con las primeras 10 cantidad de votos.
 
     while(i<max){
-       result.push_back(imagenes[i]);
+       result.push_back(imagenes[imagenes.size()-i]);
        i++;
     }
     return result;
