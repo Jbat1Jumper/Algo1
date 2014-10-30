@@ -62,23 +62,16 @@ bool GaleriaImagenes::tienePixelBlanco(Imagen imagen) const{
 }
 
 void GaleriaImagenes::agregarImagen(const Imagen& imagen){
-    int i = 1;
-    Imagen aux1 = imagenes[0];
-    int votos1 = votos[0];
-    Imagen aux2 = imagenes[0];
-    int votos2 = votos[0];
-    imagenes.push_back(imagenes[imagenes.size()-1]);
-	votos.push_back(votos[imagenes.size()-1]);
-    while (i<(imagenes.size()-1)){
-           aux2 = imagenes[i];
-           votos2 = votos[i];
-           imagenes[i]= aux1;
-           votos[i]=votos1;
-           aux1 = aux2;
-           votos1=votos2;
-    }
-    imagenes[0] = imagen;
-    votos[0]=0;
+	if(std::find(imagenes.begin(), imagenes.end(), imagen)!=imagenes.end())
+	{
+		cout << "Ya existe una imagen identica" << endl;
+		return;
+	}
+	imagenes.push_back(imagen);
+	votos.push_back(0);
+	Ordenar();
+	cout << "Imagen agregada" << endl;
+	
 }
 
 void GaleriaImagenes::votar(const Imagen& imagen){
@@ -86,10 +79,13 @@ void GaleriaImagenes::votar(const Imagen& imagen){
     while(i < imagenes.size()){
         if (imagenes[i]== imagen){
             votos[i]++;
-            //reordenar(); ----->> falta!
+			cout << "Imagen Votada";
+            Ordenar();
+			return;
         }
         i++;
     }
+	cout << "No esta cargada la imagen en la galeria" << endl;
 }
 
 
@@ -151,7 +147,6 @@ void GaleriaImagenes::cargar (std::istream& is){
 			i=1;
 	}
 	Ordenar();
-	
 }
 
 void GaleriaImagenes::Ordenar()
@@ -169,7 +164,7 @@ void GaleriaImagenes::Ordenar()
 			j++;
 		}
 		i++;
-	}
-
 }
+}
+
 

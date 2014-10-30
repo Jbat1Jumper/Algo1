@@ -179,12 +179,13 @@ void eliminarMasVotada()
 
 void guardarGaleria()
 {
-	cout << endl <<"Ingrese nombre de destino" << endl;
+	cout <<"Ingrese nombre de destino" << endl;
     string archivonuevo;
     cin >> archivonuevo;
 	std::ofstream ofs(archivonuevo.c_str());
 	miGaleria.guardar(ofs);
 	ofs.close();
+	cout << "Galería guardada" << endl; 
 }
 
 void top10()
@@ -234,6 +235,36 @@ void laMasChiquitaConPuntoBlanco()
 	cout << "Imagen Guardada" <<endl;
 }
 
+void agregarImagen()
+{
+	cout << "Ingrese nombre de archivo de imagen \n";
+    string nombre;
+    cin >> nombre;
+	std::ifstream ifs(nombre.c_str());
+	if(!ifs.is_open()){
+		cout << "no se pudo abrir" << endl;
+		return;
+	}
+	Imagen miImagen(1,1);
+	miImagen.cargar(ifs);
+	miGaleria.agregarImagen(miImagen);
+}
+
+void votar()
+{
+	cout << "Ingrese nombre de archivo de imagen a votar \n";
+    string nombre;
+    cin >> nombre;
+	std::ifstream ifs(nombre.c_str());
+	if(!ifs.is_open()){
+		cout << "no se pudo abrir" << endl;
+		return;
+	}
+	Imagen miImagen(1,1);
+	miImagen.cargar(ifs);
+	miGaleria.votar(miImagen);
+}
+
 int main() {
 	int opcion_menu = -1;
 	int opcion_salir = 12;
@@ -264,6 +295,12 @@ int main() {
 			case 7:
 				laMasChiquitaConPuntoBlanco();
 			break;
+			case 8:
+				agregarImagen();
+				break;
+			case 9:
+				votar();
+				break;
 			case 10:
 				eliminarMasVotada();
 			break;

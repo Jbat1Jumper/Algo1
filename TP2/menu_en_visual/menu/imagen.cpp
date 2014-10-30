@@ -205,10 +205,10 @@ bool Imagen::operator==(const Imagen &otra) const
     int j =0;
     int k =0;
     bool res = true;
-    while(j<otra.pixels.size())
+	while(j<min(otra.pixels.size(),pixels.size()))
     {
     k=0;
-    while(k<otra.pixels.at(0).size())
+	while(k<min(otra.pixels.at(0).size(),pixels.at(0).size()))
     {
         if(!(otra.obtenerPixel(j,k)==obtenerPixel(j,k)))
             {
