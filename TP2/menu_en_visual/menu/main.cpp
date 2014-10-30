@@ -171,6 +171,69 @@ void cargargaleria()
 	cout << "Galeria cargada" << endl;
 }
 
+void eliminarMasVotada()
+{
+	miGaleria.eliminarMasVotada();
+	cout << "Imagen eliminada" << endl;
+}
+
+void guardarGaleria()
+{
+	cout << endl <<"Ingrese nombre de destino" << endl;
+    string archivonuevo;
+    cin >> archivonuevo;
+	std::ofstream ofs(archivonuevo.c_str());
+	miGaleria.guardar(ofs);
+	ofs.close();
+}
+
+void top10()
+{
+	vector<Imagen> miTop10 = miGaleria.top10();
+	cout <<"Ingrese nombre de destino" << endl;
+    string archivonuevo;
+    cin >> archivonuevo;
+	std::ofstream ofs(archivonuevo.c_str());
+	ofs << "[" ;
+	for(int i=0;i<miTop10.size();i++)
+	{
+	ofs <<miTop10[i].alto() << " ";
+	ofs << miTop10[i].ancho() << " ";
+	ofs << "[";
+	for(int y = 0; y < miTop10[i].alto(); y++){
+		for(int x = 0; x < miTop10[i].ancho(); x++){
+			if(x + y != 0)
+				ofs << ",";
+			Pixel miPixel = miTop10[i].obtenerPixel(y,x);
+			miPixel.guardar(ofs);
+		}
+		if(miTop10[i].alto()-1==y)
+			ofs <<"]";
+	}
+		if(i==miTop10.size()-1)
+		ofs << "]";
+		else
+			ofs <<",";
+	}
+	cout << "Imagenes guardadas" << endl ;
+}
+
+void laMasChiquitaConPuntoBlanco()
+{
+	Imagen chConPuntoBlanco = miGaleria.laMasChiquitaConPuntoBlanco();
+	if(chConPuntoBlanco == Imagen(1,1)){
+		cout << "No existe imagen con punto blanco" << endl;
+		return;
+	}
+	cout <<"Ingrese nombre de destino" << endl;
+    string archivonuevo;
+    cin >> archivonuevo;
+	std::ofstream ofs(archivonuevo.c_str());
+	chConPuntoBlanco.guardar(ofs);
+	ofs.close();
+	cout << "Imagen Guardada" <<endl;
+}
+
 int main() {
 	int opcion_menu = -1;
 	int opcion_salir = 12;
@@ -194,6 +257,18 @@ int main() {
             break;
 			case 3:
 				cargargaleria();
+			break;
+			case 6:
+				top10();
+			break;
+			case 7:
+				laMasChiquitaConPuntoBlanco();
+			break;
+			case 10:
+				eliminarMasVotada();
+			break;
+			case 11:
+				guardarGaleria();
 			break;
         }
 	}

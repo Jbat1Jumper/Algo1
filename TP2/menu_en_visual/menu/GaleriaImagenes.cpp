@@ -99,11 +99,14 @@ void GaleriaImagenes::eliminarMasVotada(){
 }
 
 vector <Imagen> GaleriaImagenes::top10() const{
-    int max = 10;
-    int i = 0;
-    vector<Imagen> result; //vector va a ser un vector con las primeras 10 cantidad de votos.
-
-    while(i<max){
+	if(votos.size()<10)
+	{
+		return imagenes; 
+	}
+	int max = 10;
+    int i = 1;
+    vector<Imagen> result; 
+    while(i<=max){
        result.push_back(imagenes[imagenes.size()-i]);
        i++;
     }
@@ -111,7 +114,19 @@ vector <Imagen> GaleriaImagenes::top10() const{
 }
 
 void GaleriaImagenes::guardar(std::ostream& os) const{
-
+	os << "[";
+	for(int i = 0; i < votos.size(); i++)
+			{
+				os << "(";
+				Imagen miImagen = imagenes[i];
+				int voto = votos[i];
+				miImagen.guardar(os);
+				os << ",";
+				os << voto;
+				os << ")";
+				if(i < votos.size()-1)
+					os << ",";
+	}	os << "]";
 }
 void GaleriaImagenes::cargar (std::istream& is){
 
@@ -132,9 +147,29 @@ void GaleriaImagenes::cargar (std::istream& is){
 		votos.push_back(voto);
 		is >> parentesis;
 		is >> coma;
-		if(coma == ']')
+		if(coma != ',')
 			i=1;
 	}
+	Ordenar();
 	
+}
+
+void GaleriaImagenes::Ordenar()
+{
+	int i= 0;
+	int n= votos.size();
+	while(i < n){
+		int j= 0;
+		while(j < n-1){
+			if(votos[j] > votos[j+1])
+			{
+				swap(votos[j],votos[j+1]);
+				swap(imagenes[j],imagenes[j+1]);
+			}
+			j++;
+		}
+		i++;
+	}
+
 }
 
