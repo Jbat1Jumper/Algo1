@@ -2,8 +2,11 @@
 #include <iostream>
 #include <fstream>
 #include "imagen.h"
+#include "galeria_imagenes.h"
 
 using namespace std;
+
+GaleriaImagenes miGaleria;
 
 int MostrarMenuPrincipal() {
 	int opcion;
@@ -72,6 +75,10 @@ void opcion_debug() {
 	{
         cout << "(" << posiciones.at(i).first << "," << posiciones.at(i).second << ")";
 	}
+	std::ifstream ifs4("galeria.txt");
+	cout << endl << "Cargando galeria" << endl;
+	GaleriaImagenes galeria;
+	galeria.cargar(ifs4);
 
 }
 
@@ -149,6 +156,20 @@ void blur()
 	cout << endl << "Imagen Guardada" <<endl;
 }
 
+void cargargaleria()
+{
+	cout << "Ingrese nombre de archivo \n";
+    string nombre;
+    cin >> nombre;
+	std::ifstream ifs(nombre.c_str());
+	if(!ifs.is_open()){
+		cout << "no se pudo abrir" << endl;
+		return;
+	}
+	miGaleria.cargar(ifs);
+	ifs.close();
+	cout << "Galeria cargada" << endl;
+}
 
 int main() {
 	int opcion_menu = -1;
@@ -171,6 +192,9 @@ int main() {
             case 2:
                 acuarela();
             break;
+			case 3:
+				cargargaleria();
+			break;
         }
 	}
 	cout << "\nsaliendo\n";

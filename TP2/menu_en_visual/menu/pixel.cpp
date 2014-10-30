@@ -58,15 +58,16 @@ void Pixel::guardar(std::ostream& os) const{
 
 void Pixel::cargar(std::istream& ss) {
 	int r, g, b;
-	char acatambiensedeberiaverificar;
+	char parentesis;
+	char puntoycoma;
 	{
-		ss >> acatambiensedeberiaverificar;
+		ss >> parentesis;
 		ss >> r;
-		ss >> acatambiensedeberiaverificar;
+		ss >> puntoycoma;
 		ss >> g;
-		ss >> acatambiensedeberiaverificar;
+		ss >> puntoycoma;
 		ss >> b;
-		ss >> acatambiensedeberiaverificar;
+		ss >> parentesis;
 	}
 	intensidades[0]= r;
 	intensidades[1]= g;

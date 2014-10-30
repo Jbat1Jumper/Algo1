@@ -224,23 +224,20 @@ bool Imagen::operator==(const Imagen &otra) const
 
 
 void Imagen::cargar (std::istream& is) {
-	std::string line;
-	std::getline(is, line);
-	std::stringstream ss(line);
-
+	
 	int ancho, alto;
-	char acasedeberiaverificar;
-	ss >> alto;
-	ss >> ancho;
+	char corchete;
+	is >> alto;
+	is >> ancho;
 	resize(alto, ancho);
 
 	for(int y = 0; y < this->alto(); y++)
 		for(int x = 0; x < this->ancho(); x++){
-			ss >> acasedeberiaverificar;
+			is >> corchete;
 			Pixel miPixel;
-			miPixel.cargar(ss);
+			miPixel.cargar(is);
 			modificarPixel(y,x, miPixel);
 		}
-	is >> acasedeberiaverificar;
+		is >> corchete;
 }
 

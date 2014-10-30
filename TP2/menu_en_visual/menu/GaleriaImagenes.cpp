@@ -115,5 +115,26 @@ void GaleriaImagenes::guardar(std::ostream& os) const{
 }
 void GaleriaImagenes::cargar (std::istream& is){
 
+	int voto;
+	char corchete;
+	char parentesis;
+	char coma;
+	int i =0;
+	is >> corchete;
+	while (i<1)
+	{
+		is >> parentesis;
+		Imagen miImagen(1,1);
+		miImagen.cargar(is);
+		imagenes.push_back(miImagen);
+		is >> coma;
+		is >> voto;
+		votos.push_back(voto);
+		is >> parentesis;
+		is >> coma;
+		if(coma == ']')
+			i=1;
+	}
+	
 }
 
