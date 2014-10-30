@@ -10,7 +10,7 @@ GaleriaImagenes miGaleria;
 
 int MostrarMenuPrincipal() {
 	int opcion;
-	cout << "Galerazo\nSeleccione alguna opcion para continuar\n";
+	cout << "\nGalerazo\nSeleccione alguna opcion para continuar\n";
 	cout << "1 - blur\n";
 	cout << "2 - acuarela\n";
 	cout << "3 - cargar galeria\n";
