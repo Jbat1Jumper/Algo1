@@ -1,9 +1,9 @@
-private:
-  std::vector<Imagen> imagenes;
-  std::vector<int> votos;
-
-public:
-
+/*
+**La galeria esta ordenada de menor voto a mayor voto tanto vector votos como imagenes.
+**Se realizo de esta manera para que facilite la reorganizacion cuando se agregan y/o
+**eliminan imagenes.
+**
+*/
 void GaleriaImagenes::dividirYAgregar(const Imagen &imagen, int n, int m){
 
     }
@@ -19,6 +19,7 @@ Imagen GaleriaImagenes::laMasChiquitaConPuntoBlanco() const{
                 menor = actual;
             }
         }
+        i++;
     }
     return menor;
 }
@@ -30,6 +31,7 @@ Imagen getPrimeraBlanca(){
         result = imagenes[i];
         break;
         }
+        i++;
     }
     return result;
 }
@@ -47,18 +49,27 @@ bool tienePixelBlanco(Imagen &imagen){
                 result = true;
                 break;
             }
+            j++;
         }
+        i++;
     }
     return result;
 
 }
-void GaleriaImagenes::agregarImagen(const Imagen &imagen){
+void GaleriaImagenes::agregarImagen(const Imagen& imagen){
 
 
     }
-void GaleriaImagenes::votar(const Imagen &imagen){
-
+void GaleriaImagenes::votar(const Imagen& imagen){
+    int i = 0;
+    while(i < imagenes.size()){
+        if (imagenes[i]== imagen){
+            votos[i]++;
+            //reordenar(); ----->> falta!
+        }
+        i++;
     }
+}
 
 
 void GaleriaImagenes::eliminarMasVotada(){
@@ -72,7 +83,8 @@ vector <Imagen> top10() const{
     vector<Imagen> result; //vector va a ser un vector con las primeras 10 cantidad de votos.
 
     while(i<max){
-       result.push_back(imagenes[i]);
+       result.push_back(imagenes[max-i]);
+       i++;
     }
     return result;
 }
