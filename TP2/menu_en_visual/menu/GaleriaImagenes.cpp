@@ -4,6 +4,10 @@
 **eliminan imagenes.
 **
 */
+#include "galeria_imagenes.h"
+#include <sstream>
+#include <algorithm>
+
 void GaleriaImagenes::dividirYAgregar(const Imagen &imagen, int n, int m){
 
 }
@@ -13,7 +17,7 @@ Imagen GaleriaImagenes::laMasChiquitaConPuntoBlanco() const{
     Imagen menor = getPrimeraBlanca();
     Imagen actual = Imagen(10,10);
     while (i<tam){
-        if(tienePixelBlanco(imagenes[i]){
+        if(tienePixelBlanco(imagenes[i])){
             actual = imagenes[i];
             if(actual.alto()<=menor.alto() && actual.ancho()<=actual.ancho()){
                 menor = actual;
@@ -23,11 +27,11 @@ Imagen GaleriaImagenes::laMasChiquitaConPuntoBlanco() const{
     }
     return menor;
 }
-Imagen getPrimeraBlanca(){
+Imagen GaleriaImagenes::getPrimeraBlanca() const{
     int i = 0;
-    Imagen result;
+	Imagen result(1,1);
     while (i<imagenes.size()){
-        if tienePixelBlanco(imagenes[i]){
+        if (tienePixelBlanco(imagenes[i])){
         result = imagenes[i];
         break;
         }
@@ -36,7 +40,7 @@ Imagen getPrimeraBlanca(){
     return result;
 }
 
-bool tienePixelBlanco(Imagen &imagen){
+bool GaleriaImagenes::tienePixelBlanco(Imagen imagen) const{
     int i = 0;
     int j = 0;
     bool result = false;
@@ -64,8 +68,8 @@ void GaleriaImagenes::agregarImagen(const Imagen& imagen){
     Imagen aux2 = imagenes[0];
     int votos2 = votos[0];
     imagenes.push_back(imagenes[imagenes.size()-1]);
-    votos.push_back(votos[.size()-1]);
-    while (i<(imagenes.size()-1){
+	votos.push_back(votos[imagenes.size()-1]);
+    while (i<(imagenes.size()-1)){
            aux2 = imagenes[i];
            votos2 = votos[i];
            imagenes[i]= aux1;
@@ -94,7 +98,7 @@ void GaleriaImagenes::eliminarMasVotada(){
     votos.pop_back();
 }
 
-vector <Imagen> top10() const{
+vector <Imagen> GaleriaImagenes::top10() const{
     int max = 10;
     int i = 0;
     vector<Imagen> result; //vector va a ser un vector con las primeras 10 cantidad de votos.
@@ -106,10 +110,10 @@ vector <Imagen> top10() const{
     return result;
 }
 
-void guardar(std::ostream& os) const{
+void GaleriaImagenes::guardar(std::ostream& os) const{
 
 }
-void cargar (std::istream& is){
+void GaleriaImagenes::cargar (std::istream& is){
 
 }
 

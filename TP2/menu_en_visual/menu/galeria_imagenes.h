@@ -19,6 +19,9 @@ class GaleriaImagenes {
  private:
   std::vector<Imagen> imagenes;
   std::vector<int> votos;
+  Imagen getPrimeraBlanca() const;
+  bool tienePixelBlanco(Imagen imagen) const;
+
 };
 
 #endif  // GALERIA_IMAGENES_H
