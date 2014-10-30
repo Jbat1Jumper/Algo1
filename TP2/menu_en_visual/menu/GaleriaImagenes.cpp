@@ -6,7 +6,7 @@
 */
 void GaleriaImagenes::dividirYAgregar(const Imagen &imagen, int n, int m){
 
-    }
+}
 Imagen GaleriaImagenes::laMasChiquitaConPuntoBlanco() const{
     int tam = imagenes.size();
     int i = 0;
@@ -56,10 +56,12 @@ bool tienePixelBlanco(Imagen &imagen){
     return result;
 
 }
+
 void GaleriaImagenes::agregarImagen(const Imagen& imagen){
+    imagenes.push_back(imagen);
+    votos.push_back(0);
+}
 
-
-    }
 void GaleriaImagenes::votar(const Imagen& imagen){
     int i = 0;
     while(i < imagenes.size()){
@@ -73,6 +75,11 @@ void GaleriaImagenes::votar(const Imagen& imagen){
 
 
 void GaleriaImagenes::eliminarMasVotada(){
+    int i = 0;
+    while (i<(imagenes.size()-1){
+        imagenes[i] = imagenes[i+1];
+        votos[i] = votos[i+1];
+    }
     imagenes.pop_back();
     votos.pop_back();
 }
@@ -83,7 +90,7 @@ vector <Imagen> top10() const{
     vector<Imagen> result; //vector va a ser un vector con las primeras 10 cantidad de votos.
 
     while(i<max){
-       result.push_back(imagenes[max-i]);
+       result.push_back(imagenes[i]);
        i++;
     }
     return result;
