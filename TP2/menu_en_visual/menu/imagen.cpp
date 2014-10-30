@@ -257,3 +257,38 @@ void Imagen::cargar (std::istream& is) {
 		}
 	is >> acasedeberiaverificar;
 }
+
+/*
+problema blur (this : Imagen; k : Z) f
+requiere k > 0 ;
+modifica this ;
+asegura mismasDimensiones : alto(this) == alto(pre(this)) ^ ancho(this) == ancho(pre(this)) ;
+asegura blurKVecinosIncompletos : (8x   [0::ancho(this)); y   [0::alto(this)))
+:KV ecinosCompletos(this; x; y; k) ) esNegro(color(this; x; y)) ;
+asegura blurKVecinosCompletos : (8x   [0::ancho(this)); y   [0::alto(this)))
+KV ecinosCompletos(this; x; y; k) ) esP romedio(color(this; x; y);Kvecinos(pre(this); x; y; k)) ;
+aux esPromedio (p: Pixel, kv: [Pixel]) : Bool = red(p) == promedio([red(x)jx   kv]) ^
+green(p) == promedio([green(x)jx   kv]) ^ blue(p) == promedio([blue(x)jx   kv]) ;
+
+*/
+
+void Imagen::blur(int k){
+
+}
+
+/*
+problema acuarela (this : Imagen; k : Z) f
+requiere k > 0 ;
+modifica this ;
+asegura mismasDimensiones : alto(this) == alto(pre(this)) ^ ancho(this) == ancho(pre(this)) ;
+asegura acuarelaKVecinosIncompletos : (8x   [0::ancho(this)); y   [0::alto(this)))
+:KV ecinosCompletos(this; x; y; k) ) esNegro(color(this; x; y)) ;
+asegura acuarelaKVecinosCompletos : (8x   [0::ancho(this)); y   [0::alto(this)))
+KV ecinosCompletos(this; x; y; k) ) esMediana(color(this; x; y);Kvecinos(pre(this); x; y; k)) ;
+aux esMediana (p: Pixel, kv: [Pixel]) : Bool = red(p) == mediana([red(x)jx   kv]) ^
+green(p) == mediana([green(x)jx   kv]) ^ blue(p) == mediana([blue(x)jx   kv]) ;
+  */
+
+void Imagen::acuarela(int k){
+
+}
