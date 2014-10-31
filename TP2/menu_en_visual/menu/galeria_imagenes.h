@@ -21,7 +21,7 @@ class GaleriaImagenes {
   std::vector<int> votos;
   /*
   invRep(x) :
-  paratodo i < votos.size(), votos[i] <= votos [i+1] y imagenes.size() = votos.size() Y
+  paratodo i < votos.size(), votos[i] >=0 Y
   paratodo i,j <imagenes.size(), i=!j ,imagenes[i] != imagenes[j].
 
   */
