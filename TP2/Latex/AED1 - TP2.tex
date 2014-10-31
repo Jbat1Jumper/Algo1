@@ -1,0 +1,290 @@
+% Clase y configuracion de tipo de documento
+\documentclass[10pt,a4paper,spanish]{article}
+% Inclusion de paquetes
+\usepackage{a4wide}
+\usepackage{amsmath, amscd, amssymb, amsthm, latexsym}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[width=15.5cm, left=3cm, top=2.5cm, height= 24.5cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{xspace}
+\usepackage{longtable}
+\usepackage{caratula}
+% incluye macros espec materia
+\include{algo1-cmds}
+
+% Encabezado
+\lhead{Algoritmos y Estructuras de Datos I}
+\rhead{Grupo 4}
+% Pie de pagina
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{Facultad de Ciencias Exactas y Naturales}
+\rfoot{Universidad de Buenos Aires}
+
+\begin{document}
+
+% Datos de caratula
+\materia{Algoritmos y Estructuras de Datos I}
+\titulo{Trabajo Pr\'actico N\'umero 2}
+\subtitulo{Especificaci\'on, Demostraci\'on e Implementaci\'on}
+\grupo{Grupo: 4}
+
+\integrante{Aun Castells, Mar\'ia Virginia}{366/13}{vauncastells@hotmail.com}
+\integrante{Motta, Leandro}{85/14}{leamotta@msn.com}
+\integrante{Zdanovitch, Nikita}{520/14}{3hb.tch@gmail.com}
+\integrante{de Monasterio, Francisco}{764/13}{franciscodemonasterio@outlook.com}
+
+\maketitle
+
+\newpage
+
+% Para crear un indice
+%\tableofcontents
+
+% Forzar salto de pagina
+\clearpage
+
+% Pueden modularizar el documento incluyendo otros .tex
+% \include{observaciones}
+
+%\section{Observaciones}
+%
+%	\begin{enumerate}
+%		\item un item
+%		\item otro item
+%	\end{enumerate}
+%
+% Otro salto de pagina
+% \newpage
+
+\section{Resolución}
+
+\begin{ejercicio}
+	% EJEMPLO
+	Posiciones M\'as Oscuras:
+
+	\begin{problema}{posicionesM\'asOscuras}{i: Imagen}{res:[(\ent,\ent)]}		
+
+		\aseguraml[pertenecenALaImagen]{
+			} \nuevalinea{( \forall\ pos \selec res)\ 0 \leq \prm{pos} < ancho(i)\  \land\ 0 \leq \sgd{pos} < alto(i);
+		}
+		\aseguraml[tienenMinimaLuminosidad]{} \nuevalinea{( \forall\ pos \selec res)\ lum(color(i,\prm{pos} ,\sgd{pos})) == minLum(i);}
+		%\nuevalinea{ res[i][j] == medianaONegro(i,\ j,\ img,\ k); }
+	\end{problema}
+	
+\end{ejercicio}
+
+\begin{ejercicio}
+	% EJEMPLO
+	Top 10:
+
+	\begin{problema}{top10}{g: Galeria}{res:[Imagen]}		
+
+		\requiere[]{
+			|imagenes(g)| \geq 10
+			}
+		\aseguraml[]{res == primeros(10,invertir(imagenesEnOrden(g)));}
+	\end{problema}
+	
+\end{ejercicio}
+
+\begin{ejercicio}
+	% EJEMPLO
+	La M\'as Chiquita Con Punto Blanco:
+
+	\begin{problema}{laMasChiquitaConPuntoBlanco}{g: Galeria}{res:Imagen}		
+
+		\requiere[]{
+			|imagenes(g)| > 0
+			}
+		\aseguraml[]{esMenor(conPixelBlancos(g));}
+		%\nuevalinea{ res[i][j] == medianaONegro(i,\ j,\ img,\ k); }
+	\end{problema}
+	
+\end{ejercicio}
+
+\begin{ejercicio}
+	% EJEMPLO
+	Agregar Imagen:
+
+	\begin{problema}{agregarImagen}{g: Galeria, i: Imagen}{}
+		\modifica{g}
+		\asegura[]{
+			|imagenes(\pre{g})|+ 1 == |imagenes(g)|
+		}
+		\aseguraml{
+			mismos(imagenes(\pre{g}++i,\ imagenes(g));
+		}		
+%		\aseguraml{
+%			\left( \forall\ y \selec {[0\,..\,alto(imagen))} \right) \left( \forall\ x \selec {[0\,..\,ancho(imagen))} \right) 
+%		}
+%		\nuevalinea{ \IF   esKCompleto(kVecinos(imagen,\ y,\ x,\ k),\ k)\ }
+%		\nuevalinea{ \THEN esPromedio(res, imagen,\ y,\ x,\ k)\ }
+%		\nuevalinea{ \ELSE esNegro(res,\ y,\ x) ;}
+	\end{problema}
+
+\end{ejercicio}
+
+\begin{ejercicio}
+	% EJEMPLO
+	Votar:
+
+	\begin{problema}{votar}{g: Galeria, i: Imagen}{}
+		\modifica{g}
+		\requiere[]{
+			|imagenes(g)| > 0
+			}
+		\asegura[]{
+			votos(g,i) == votos(\pre{g},i) + 1
+		}
+		\aseguraml{
+			mismos(imagenes(\pre{g},\ imagenes(g));
+		}		
+		\aseguraml{
+			( \forall\ j \selec imagenes(g), j\neq i)\ votos(g,j) == votos(\pre{g},j);
+		}
+%		\nuevalinea{ \IF   esKCompleto(kVecinos(imagen,\ y,\ x,\ k),\ k)\ }
+%		\nuevalinea{ \THEN esPromedio(res, imagen,\ y,\ x,\ k)\ }
+%		\nuevalinea{ \ELSE esNegro(res,\ y,\ x) ;}
+	\end{problema}
+
+\end{ejercicio}
+
+\begin{ejercicio}
+	% EJEMPLO
+	eliminarMasVotada:
+
+	\begin{problema}{eliminarMasVotada}{g: Galeria}{}
+		\modifica{g}
+		\requiere[]{
+			|imagenes(g)| > 0
+			}
+		\asegura[]{
+			|imagenes(\pre{g})|- 1 == |imagenes(g)|
+		}
+		\asegura[lasNuevasEstaban]{
+		} \nuevalinea{( \forall\ x \selec imagenes(g))\ x\ \epsilon\ imagenes(\pre{g}) \wedge votos(g,x) == votos(\pre{g},x);}
+		\asegura[peroFaltaUnaDeLasMasVotadas]{
+			\neg mismos(masVotados(\pre{g},\ masVotados(g))
+		}		
+	\end{problema}
+
+\end{ejercicio}
+
+
+%\begin{ejercicio}
+%	% EJEMPLO
+%	Otro ejemplo sin resultado:
+	
+%	\begin{problema*}{cociente}{a,b:\ent}
+%		\requiere{b \neq 0}
+%		\modifica{a,b}
+%		\asegura{a == pre(a)$ $div$ $pre(b)}
+%		\asegura{b == pre(a)$ $mod$ $pre(b)}
+%	\end{problema*}
+
+%\end{ejercicio}
+
+% \subsection{Ejercicio X}
+
+\subsection{Auxiliares}
+
+%\begin{itemize}
+%	\item \auxil{Alto(img:{{(\ent ,\ent ,\ent)}}} : \ent}\longitud{img}}
+%\end{itemize}
+
+\begin{itemize}
+
+	\item \auxilml{colores(i: Imagen) : [Pixel]} {} 
+		\auxnl{
+		[color(i,x,y)\ |\ x \selec [0..ancho(i)),\ y \selec [0..alto(i))];
+		}
+
+	\item \auxil{lum(p: Pixel) : \ent}{
+		red(p) + blue(p) + green(p)
+	}
+	
+	\item \auxil{minLum(i: Imagen) : \ent}{
+		lum(\cab{minLumPixels(i)})
+	}
+	
+	\item \auxilml{minLumPixels(i: Imagen) : [Pixel]} {} 
+		\auxnl{
+		[c\ |\ c \selec colores(i), (\forall c2 \selec colores(i))\ lum(c) \leq lum(c2)];
+		}
+		
+	\item \auxil{primeros(n:\ent, l: [T]) : [T]}{
+		\IF |l| \leq n \THEN l \ELSE [l[i]\ |\ i \selec [0..10)]
+	}	
+			
+	\item \auxilml{invertir(l: [T]) : [T]} {} 
+		\auxnl{
+			[l[|l|-i]\ |\ i \selec (0..|l|]];
+		}		
+		
+	\item \auxilml{imagenesEnOrden(g: Galeria) : [Imagen]} {} 
+		\auxnl{
+			[i\ |\ v \selec [0..maxVoto(g)],\ i \selec imagenes(g), votos(g,i) == v];
+		}		
+			
+	\item \auxilml{maxVoto(g: Galeria) : \ent}{
+		\IF |imagenes(g)| == 0 \THEN 0 \ELSE }
+		\auxnl{
+			\cab{[ votos(g,i)\ |\ i \selec imagenes(g), (\forall i2 \selec imagenes(g)) votos(g,i) \geq votos(g,i2)]};
+		}		
+	
+	\item \auxilml{esMenor(imagenes: [Imagen],imagen: Imagen) : \bool} {
+	} \auxnl{
+		( \forall\ i \selec imagenes)\ ancho(i)\geq ancho(imagen) \wedge alto(i) \geq alto(imagen);
+		}	
+	
+	\item \auxilml{conPixelBlanco(g: Galeria) : [Imagen]} {} 
+		\auxnl{
+			[imagen\ |\ imagen \selec imagenes(g),\ pixelBlanco(imagen) == true];
+		}
+		
+		\item \auxilml{pixelBlanco(imagen: Imagen) : \bool} { 
+		No\ Entendi\ esta\ y\ creo\ que\ no\ se\ puede\ hacer\ de\ esta\ manera
+		} 
+	
+	\item \auxilml{masVotados(g: Galeria) : [Imagen]} {} 
+		\auxnl{
+		[img\ |\ img \selec imagenes(g),\ masVotado(g,img)];
+		}
+
+	\item \auxilml{masVotado(g: Galeria,img: Imagen) : \bool} {
+	} \auxnl{
+		( \forall\ imaggal \selec imagenes(g))\ votos(g,imaggal) \geq votos(g,img);
+		}
+
+	\item \auxilml{esImagenValida(img:[[(\ent,\ent,\ent)]]) : \bool}{ esRectangular(imagen)\ \land\  }
+	\auxnl{ 
+		(\forall\ f \selec imagen) (\forall\ px \selec f)\ esPixelValido(px);
+	}
+	
+	\item \auxil{alto(img:[[(\ent,\ent,\ent)]]) : \ent}{
+		|img|
+	}
+	\item \auxil{ancho(img:[[(\ent,\ent,\ent)]]) : \ent}{
+		\IF |img| == 0 \THEN 0 \ELSE |\cab{img}|
+	}
+	
+	\item \auxil{pixel(img:[[(\ent,\ent,\ent)]],\ y,x:\ent) : (\ent,\ent,\ent)}{
+		 \IF esIndiceValido(y,\ x,\ img) \THEN img[y][x] \ELSE (0,\ 0,\ 0)
+	}
+	
+	\item \auxil{cuenta(x:T,\ a:[T]) : \ent}{
+		\big|[ y\ |\ y \selec a,\ y == x ]\big|
+	}
+	
+	\item \auxil{mismos(a,b:[T]) : \bool}{
+		(|a| == |b|) \land ( \forall\ c \selec a)\ cuenta(c,\ a) == cuenta(c,\ b)
+	}
+
+\end{itemize}
+
+        
+\end{document}

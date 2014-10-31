@@ -104,6 +104,7 @@ void blur()
 
 void cargargaleria()
 {
+	miGaleria = GaleriaImagenes();
 	cout << "Ingrese nombre de archivo \n";
     string nombre;
     cin >> nombre;
@@ -213,6 +214,7 @@ void votar()
 
 void dividiryagregar()
 {
+	miGaleria = GaleriaImagenes();
 	cout << "Ingrese nombre de archivo de galeria \n";
     string nombre;
     cin >> nombre;
