@@ -9,9 +9,9 @@
 #include <algorithm>
 
 vector<Imagen> dividir(int n,int m,Imagen img){
-	vector<Imagen> division;	
+	vector<Imagen> division;
 	Imagen miniImg(img.alto() / m, img.ancho() / n);
-	
+
 	for (int j=0; j<n ;j++){
 	for (int i = 0; i < m ; i++){
 		for(int x = 0; x < miniImg.alto(); x++){
@@ -104,7 +104,7 @@ void GaleriaImagenes::agregarImagen(const Imagen& imagen){
 	votos.push_back(0);
 	Ordenar();
 	cout << "Imagen agregada" << endl;
-	
+
 }
 
 void GaleriaImagenes::votar(const Imagen& imagen){
@@ -122,19 +122,26 @@ void GaleriaImagenes::votar(const Imagen& imagen){
 }
 
 
+
 void GaleriaImagenes::eliminarMasVotada(){
+//vale invRep(pre(this)) y abs(pre(this); pre(g)) y |imagenes(g)| > 0;
     imagenes.pop_back();
     votos.pop_back();
+//vale |imagenes(g)| == |pre(imagenes(g))|-1 Y paratodo (i<--[0..|pre(a)|-1)) imagenes[i] == pre(imagenes)[i] Y
+//paratodo (i<--[0..|pre(a)|-1)) votos(g,g[i]) == votos(pre(g),pre(imagenes)[i]) ;
+//implica (∀x <- imagenes(g)) x e imagenes(pre(g)) ^ votos(g, x) == votos(pre(g), x) ya que asegure que paratodo (	  imagenes<--[0..|pre(a)|-1)) votos(g,g[i]) == votos(pre(g),pre(imagenes)[i]).
+//vale lasNuevasEstaban y peroFaltaUnaDeLasMasVotadas;
+
 }
 
 vector <Imagen> GaleriaImagenes::top10() const{
 	if(votos.size()<10)
 	{
-		return imagenes; 
+		return imagenes;
 	}
 	int max = 10;
     int i = 1;
-    vector<Imagen> result; 
+    vector<Imagen> result;
     while(i<=max){
        result.push_back(imagenes[imagenes.size()-i]);
        i++;
