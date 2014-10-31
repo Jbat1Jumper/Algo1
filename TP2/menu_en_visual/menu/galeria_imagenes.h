@@ -20,10 +20,12 @@ class GaleriaImagenes {
   std::vector<Imagen> imagenes;
   std::vector<int> votos;
   /*
-  invRep(x) :
-  paratodo i < votos.size(), votos[i] >=0 Y
-  paratodo i,j <imagenes.size(), i=!j ,imagenes[i] != imagenes[j].
-
+    invRep(x) :
+    paratodo i < votos.size(), votos[i] >=0 Y
+    paratodo i,j <imagenes.size(), i=!j ,imagenes[i] != imagenes[j].
+    abs(x,galeriaImagenes) :
+    imagenes (g: Galeria) == imagenes;
+    votos (g: Galeria, i: Imagen) == votos[std::find(imagenes.begin(), imagenes.end(), imagen)];
   */
   Imagen getPrimeraBlanca() const;
   bool tienePixelBlanco(Imagen imagen) const;
